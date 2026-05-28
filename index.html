@@ -498,24 +498,6 @@
     img.img-fade { opacity: 1 !important; transition: none !important; }
     #cta-flutuante, #cta-flutuante.pulse-once { animation: none !important; }
   }
-
-  /* iMac sem divisão: estende bg-white da dobra Empresas pra baixo (430px) no lado direito,
-     escondendo a transição de cor com a dobra Modelos (bg-brand-beige-light) atrás do iMac.
-     Aparece só no desktop (lg). */
-  @media (min-width: 1024px) {
-    #empresas { position: relative; }
-    #empresas::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      bottom: -430px;
-      width: 700px;
-      height: 430px;
-      background: #ffffff;
-      z-index: 1;
-      pointer-events: none;
-    }
-  }
 </style>
 <body class="bg-white">
 
@@ -1407,7 +1389,7 @@
       </div>
     </div>
     <div class="flex items-center justify-center w-full" style="gap: 24px;">
-      <a href="https://wa.me/5531973322921?text=Ol%C3%A1%21%20Vim%20da%20Landing%20Page%20Parcele%20Aqui%20Neg%C3%B3cios%20e%20quero%20aplicar%20o%20Parcele%20Aqui%20na%20minha%20contabilidade." target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-brand-yellow btn-yellow-hover rounded-sm transition" style="width: 369px; padding: 16px 24px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 18px; line-height: 24px; color: #371b01; box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 0 4px rgba(0,0,0,0.08), 0 0 16px rgba(0,0,0,0.08);">Quero aplicar na minha contabilidade</a>
+      <a href="https://wa.me/5531973322921?text=Ol%C3%A1%21%20Vim%20da%20Landing%20Page%20Parcele%20Aqui%20Neg%C3%B3cios%20e%20quero%20aplicar%20o%20Parcele%20Aqui%20na%20minha%20contabilidade." target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-brand-yellow btn-yellow-hover rounded-sm transition" style="width: 440px; padding: 16px 24px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 18px; line-height: 24px; color: #371b01; white-space: nowrap; box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 0 4px rgba(0,0,0,0.08), 0 0 16px rgba(0,0,0,0.08);">Quero aplicar na minha contabilidade</a>
     </div>
 
   </div>
@@ -1468,7 +1450,7 @@
 </section>
 
 <!-- ============ DOBRA 4 - MODELOS ============ -->
-<section id="modelos" class="bg-brand-beige-light relative" style="padding-top: 96px; padding-bottom: 72px; overflow-x: clip;">
+<section id="modelos" class="bg-white relative" style="padding-top: 96px; padding-bottom: 72px; overflow-x: clip;">
   <!-- iMac removido daqui: agora é uma imagem única ancorada na dobra Empresas acima,
        que transborda pra cá. Mantido só o iMac mobile (full bleed) abaixo. -->
   <div class="container-fig relative">
@@ -1553,7 +1535,7 @@
   <!-- Shape verde decorativo (SVG oficial Figma 672×572). Ancorado à borda DIREITA da tela
        (sangra até o canto da página); o que passar é cortado pelo overflow-hidden da section.
        Fora do container centralizado pra poder colar na borda. Oculto no mobile (lá é carrossel). -->
-  <img loading="lazy" decoding="async" src="public/images/sections/shape-verde.svg" alt="" aria-hidden="true" class="quem-shape hidden lg:block absolute pointer-events-none" style="width: 1080px; height: 572px; top: 55px; right: 0; z-index: 0;" />
+  <img loading="lazy" decoding="async" src="public/images/sections/shape-verde.svg" alt="" aria-hidden="true" class="quem-shape hidden lg:block absolute pointer-events-none" style="width: 1280px; height: 572px; top: 55px; right: 0; z-index: 0;" />
   <div class="relative" style="max-width: 1153px; margin: 0 auto;">
 
     <!-- Container principal: texto à esquerda + cards à direita (vertically centered, gap 124px) -->
