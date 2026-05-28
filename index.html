@@ -164,9 +164,10 @@
     #cta-flutuante .cta-flut-txt { display: none; }
   }
   /* Nav link: underline amarelo 8px só em hover/active/focus */
-  .nav-link { position: relative; padding-top: 14px; padding-bottom: 14px; transition: color 0.2s; }
+  .nav-link { position: relative; padding-top: 14px; padding-bottom: 14px; transition: color 0.2s, font-weight 0.2s; font-weight: 500; }
   .nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: #ffb800; opacity: 0; border-radius: 2px 2px 0 0; transition: opacity 0.2s; }
-  .nav-link:hover::after, .nav-link:focus::after, .nav-link:active::after { opacity: 1; }
+  .nav-link:hover::after, .nav-link:focus::after, .nav-link:active::after, .nav-link.is-active::after { opacity: 1; }
+  .nav-link:hover, .nav-link.is-active { font-weight: 700; color: #111; }
 
   /* ===== Menu mobile (full-screen) — fundo 95%, vê conteúdo atrás; animação sutil ===== */
   #mobileMenu {
@@ -507,9 +508,9 @@
       <img src="public/images/logo-parcele-aqui.svg" alt="Parcele Aqui" class="h-9 w-auto" />
     </a>
     <nav class="hidden lg:flex items-center gap-10">
-      <a href="#quem-somos" class="nav-link text-base font-semibold text-brand-black">Sobre nós</a>
-      <a href="#como-funciona" class="nav-link text-base font-medium text-brand-text-secondary hover:text-brand-black">Como funciona</a>
-      <a href="#solucao" class="nav-link text-base font-medium text-brand-text-secondary hover:text-brand-black">Soluções</a>
+      <a href="#quem-somos" class="nav-link text-base text-brand-text-secondary">Sobre nós</a>
+      <a href="#como-funciona" class="nav-link text-base text-brand-text-secondary">Como funciona</a>
+      <a href="#solucao" class="nav-link text-base text-brand-text-secondary">Soluções</a>
     </nav>
     <div class="flex items-center gap-5">
       <a href="https://wa.me/5531973322921?text=Ol%C3%A1%21%20Vim%20da%20Landing%20Page%20Parcele%20Aqui%20Neg%C3%B3cios%20e%20quero%20fazer%20uma%20simula%C3%A7%C3%A3o%20de%20parcelamento%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener" class="btn-primary hidden sm:inline-flex" style="padding: 12px 20px; font-size: 14px;">Quero simular parcelamento</a>
@@ -914,7 +915,7 @@
           <!-- Ícone chip com $ (oficial Figma) -->
           <img loading="lazy" decoding="async" src="public/images/icons/infra-04.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;" />
           <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.1px; color: #371b01;">Transações aprovadas<br/>com confiabilidade</h3>
-          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #371b01;">Integração com as principais adquirentes do mercado para liquidação em tempo real e alta taxa de aprovação.</p>
+          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #371b01;">Integração com as principais adquirentes do mercado e alta taxa de aprovação.</p>
         </div>
       </article>
     </div>
@@ -988,7 +989,7 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
                 <path d="M5 12h14M13 6l6 6-6 6" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              <span style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">Inadimplência de honorários do escritório</span>
+              <span style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">Inadimplência de honorários</span>
             </div>
             <div class="flex items-start" style="gap: 8px;">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
@@ -1037,13 +1038,13 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
               <path d="M5 12h14M13 6l6 6-6 6" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">Jornada 100% digital, simples e segura</span>
+            <span style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">Jornada 100% digital e segura</span>
           </div>
           <div class="flex items-start" style="gap: 8px;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
               <path d="M5 12h14M13 6l6 6-6 6" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">Regularização imediata para o cliente</span>
+            <span style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">Regularização imediata do cliente</span>
           </div>
           <div class="flex items-start" style="gap: 8px;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
@@ -1055,7 +1056,7 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
               <path d="M5 12h14M13 6l6 6-6 6" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">Zero risco de inadimplência para o escritório</span>
+            <span style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">Zero risco de inadimplência</span>
           </div>
         </div>
       </div>
@@ -1247,7 +1248,7 @@
     <div class="impacto-desktop flex flex-col w-full" style="gap: 24px;">
 
       <!-- LINHA 1 -->
-      <div class="flex w-full" style="gap: 24px; align-items: flex-end;">
+      <div class="flex w-full" style="gap: 24px; align-items: stretch;">
         <!-- Card 01: Tributos federais, estaduais e municipais -->
         <article class="flex flex-col items-start card-hover reveal" data-delay="1" style="background: #f8f6f0; border: 2px solid #e6ac00; border-radius: 32px; padding: 32px; flex: 1 0 0; min-width: 270px;">
           <div class="flex flex-col w-full" style="gap: 8px; border-radius: 16px; overflow: hidden;">
@@ -1286,7 +1287,7 @@
       </div>
 
       <!-- LINHA 2 -->
-      <div class="flex w-full" style="gap: 24px; align-items: flex-end;">
+      <div class="flex w-full" style="gap: 24px; align-items: stretch;">
         <!-- Card 04: Boletos atrasados -->
         <article class="flex flex-col items-start card-hover reveal" data-delay="4" style="background: #f8f6f0; border: 2px solid #e6ac00; border-radius: 32px; padding: 32px; flex: 1 0 0; min-width: 270px;">
           <div class="flex flex-col w-full" style="gap: 8px; border-radius: 16px; overflow: hidden;">
@@ -1428,10 +1429,10 @@
           <img loading="lazy" decoding="async" src="public/images/logos/Component 3.svg" alt="Itaú" class="object-contain" style="max-height: 56px; max-width: 160px;" />
           <img loading="lazy" decoding="async" src="public/images/logos/Component 4.svg" alt="Western Union" class="object-contain" style="max-height: 56px; max-width: 160px;" />
           <!-- Fileira 2 -->
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 7.webp" alt="Contabilidade Diplomata" class="object-contain" style="max-height: 92px; max-width: 180px;" />
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 9.webp" alt="Assescont" class="object-contain" style="max-height: 72px; max-width: 160px;" />
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 5.webp" alt="SR Eis Contabilidade" class="object-contain" style="max-height: 72px; max-width: 160px;" />
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 6.webp" alt="Capitale" class="object-contain" style="max-height: 56px; max-width: 160px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 7.jpg" alt="Contabilidade Diplomata" class="object-contain" style="max-height: 92px; max-width: 180px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 9.jpg" alt="Assescont" class="object-contain" style="max-height: 72px; max-width: 160px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 5.jpg" alt="SR Eis Contabilidade" class="object-contain" style="max-height: 72px; max-width: 160px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 6.jpg" alt="Capitale" class="object-contain" style="max-height: 56px; max-width: 160px;" />
           <!-- Fileira 3 -->
           <img loading="lazy" decoding="async" src="public/images/logos/Component 14.svg" alt="Detran-MS" class="object-contain" style="max-height: 72px; max-width: 160px;" />
           <img loading="lazy" decoding="async" src="public/images/logos/Component 15.svg" alt="Detran-PR" class="object-contain" style="max-height: 56px; max-width: 160px;" />
@@ -1483,7 +1484,7 @@
           <ul class="mt-4 space-y-4">
             <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              <span>Plataforma com a identidade<br/>do escritório</span>
+              <span>Plataforma com sua identidade</span>
             </li>
             <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -1756,7 +1757,7 @@
       <!-- Accordion (gap 12px entre items conforme Figma, margin-top 12 do header) -->
       <div class="flex flex-col" style="gap: 12px; margin-top: 12px;">
         <!-- Pergunta 1 (aberta por padrão) -->
-        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 16px;">
+        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 8px;">
           <summary class="flex items-start cursor-pointer list-none" style="gap: 16px; padding: 12px 24px;">
             <span class="flex-1" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #371b01;">O Parcele Aqui é seguro?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#371b01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transition-transform group-open:rotate-180">
@@ -1769,7 +1770,7 @@
         </details>
 
         <!-- Pergunta 2 (fechada) -->
-        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 16px;">
+        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 8px;">
           <summary class="flex items-start cursor-pointer list-none" style="gap: 16px; padding: 12px 24px;">
             <span class="flex-1" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #371b01;">Os boletos são liquidados à vista para o emissor?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#371b01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transition-transform group-open:rotate-180">
@@ -1782,7 +1783,7 @@
         </details>
 
         <!-- Pergunta 3 (fechada) -->
-        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 16px;">
+        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 8px;">
           <summary class="flex items-start cursor-pointer list-none" style="gap: 16px; padding: 12px 24px;">
             <span class="flex-1" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #371b01;">O cliente pode usar mais de um cartão?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#371b01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transition-transform group-open:rotate-180">
@@ -1795,7 +1796,7 @@
         </details>
 
         <!-- Pergunta 4 (fechada) -->
-        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 16px;">
+        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 8px;">
           <summary class="flex items-start cursor-pointer list-none" style="gap: 16px; padding: 12px 24px;">
             <span class="flex-1" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #371b01;">Quais pagamentos podem ser parcelados?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#371b01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transition-transform group-open:rotate-180">
@@ -1808,7 +1809,7 @@
         </details>
 
         <!-- Pergunta 5 (fechada) -->
-        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 16px;">
+        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 8px;">
           <summary class="flex items-start cursor-pointer list-none" style="gap: 16px; padding: 12px 24px;">
             <span class="flex-1" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #371b01;">Existe risco de inadimplência para o escritório?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#371b01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transition-transform group-open:rotate-180">
@@ -1821,7 +1822,7 @@
         </details>
 
         <!-- Pergunta 6 (fechada) -->
-        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 16px;">
+        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 8px;">
           <summary class="flex items-start cursor-pointer list-none" style="gap: 16px; padding: 12px 24px;">
             <span class="flex-1" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #371b01;">O escritório precisa ser uma instituição financeira?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#371b01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transition-transform group-open:rotate-180">
@@ -1866,7 +1867,7 @@
 
       <!-- Accordion mobile (gap 12px conforme Figma) -->
       <div class="flex flex-col" style="gap: 12px; margin-top: 24px;">
-        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 16px;">
+        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 8px;">
           <summary class="flex items-start cursor-pointer list-none" style="gap: 16px; padding: 12px 24px;">
             <span class="flex-1" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #371b01;">O Parcele Aqui é seguro?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#371b01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1875,7 +1876,7 @@
             <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;">Sim. A solução é desenvolvida pela Potencial Tecnologia, com mais de 25 anos de experiência, infraestrutura certificada e integração com adquirentes líderes do mercado.</p>
           </div>
         </details>
-        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 16px;">
+        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 8px;">
           <summary class="flex items-start cursor-pointer list-none" style="gap: 16px; padding: 12px 24px;">
             <span class="flex-1" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #371b01;">Os boletos são liquidados à vista para o emissor?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#371b01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1884,7 +1885,7 @@
             <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;">Sim. Enquanto o cliente parcela no cartão em até 12x, o boleto é quitado em tempo real para o emissor, sem risco de inadimplência e sem espera por compensação.</p>
           </div>
         </details>
-        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 16px;">
+        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 8px;">
           <summary class="flex items-start cursor-pointer list-none" style="gap: 16px; padding: 12px 24px;">
             <span class="flex-1" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #371b01;">O cliente pode usar mais de um cartão?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#371b01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1893,7 +1894,7 @@
             <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;">Sim. Cada operação pode ser dividida em até 3 cartões de crédito, ampliando o limite disponível e facilitando o parcelamento de valores maiores em uma única transação.</p>
           </div>
         </details>
-        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 16px;">
+        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 8px;">
           <summary class="flex items-start cursor-pointer list-none" style="gap: 16px; padding: 12px 24px;">
             <span class="flex-1" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #371b01;">Quais pagamentos podem ser parcelados?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#371b01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1902,7 +1903,7 @@
             <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;">Tributos federais, estaduais e municipais, DAS e guias do MEI, encargos trabalhistas, boletos atrasados, honorários contábeis e outras taxas e obrigações recorrentes das empresas atendidas pelo escritório.</p>
           </div>
         </details>
-        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 16px;">
+        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 8px;">
           <summary class="flex items-start cursor-pointer list-none" style="gap: 16px; padding: 12px 24px;">
             <span class="flex-1" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #371b01;">Existe risco de inadimplência para o escritório?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#371b01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1911,7 +1912,7 @@
             <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;">Não. Como o boleto é liquidado à vista no momento da transação, o escritório e o emissor não assumem o risco de crédito do parcelamento — esse risco fica com a adquirente, como em qualquer venda no cartão.</p>
           </div>
         </details>
-        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 16px;">
+        <details class="group bg-brand-yellow overflow-hidden" style="border-radius: 8px;">
           <summary class="flex items-start cursor-pointer list-none" style="gap: 16px; padding: 12px 24px;">
             <span class="flex-1" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: #371b01;">O escritório precisa ser uma instituição financeira?</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#371b01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"/></svg>
@@ -2306,5 +2307,42 @@
   <span class="cta-flut-txt">Falar com especialista</span>
 </a>
 
+<script>
+/* Menu ativo via IntersectionObserver: marca o nav-link da seção mais visível com .is-active */
+(function(){
+  var links = document.querySelectorAll('header .nav-link[href^="#"]');
+  if(!links.length) return;
+  var map = {};
+  links.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var sec = document.getElementById(id);
+    if(sec) map[id] = a;
+  });
+  if(!Object.keys(map).length) return;
+  function setActive(id){
+    links.forEach(function(a){ a.classList.remove('is-active'); });
+    if(map[id]) map[id].classList.add('is-active');
+  }
+  // Marca a seção mais visível com base na proximidade ao topo do viewport
+  function onScroll(){
+    var bestId=null, bestDist=Infinity, anchor = window.innerHeight * 0.3;
+    Object.keys(map).forEach(function(id){
+      var sec = document.getElementById(id);
+      if(!sec) return;
+      var r = sec.getBoundingClientRect();
+      // Considera a seção "ativa" se o topo dela passou pelo ponto âncora (30% da viewport)
+      if(r.top <= anchor && r.bottom >= anchor){
+        var d = Math.abs(r.top - anchor);
+        if(d < bestDist){ bestDist = d; bestId = id; }
+      }
+    });
+    setActive(bestId);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  // Estado inicial: marca conforme posição atual
+  onScroll();
+})();
+</script>
 </body>
 </html>
