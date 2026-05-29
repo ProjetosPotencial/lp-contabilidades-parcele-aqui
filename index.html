@@ -158,7 +158,7 @@
   }
   #cta-flutuante:hover { background: #1ebe5b; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.22), 0 3px 8px rgba(0,0,0,0.14); }
   #cta-flutuante:active { transform: translateY(0); }
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     /* No mobile: botão circular compacto no canto, só o ícone (texto oculto) */
     #cta-flutuante { right: 16px; bottom: 16px; padding: 14px; gap: 0; }
     #cta-flutuante .cta-flut-txt { display: none; }
@@ -244,7 +244,7 @@
      As dobras com mobile dedicado (Como Funciona, FAQ, Footer) têm suas
      próprias media queries que prevalecem e não são afetadas aqui.
      ============================================================ */
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     /* mata scroll horizontal de qualquer elemento que vaze */
     html, body { overflow-x: hidden; max-width: 100%; width: 100%; }
     html { overflow-x: clip; }
@@ -491,6 +491,46 @@
 
     /* FAQ mobile — accordions na mesma altura (baseando pelo maior) */
     #faq .faq-mobile details > summary { min-height: 72px !important; align-items: center !important; }
+
+    /* ========== BOTÕES MOBILE — full width, dentro da margem, sem quebrar texto ========== */
+    /* Todos os CTAs amarelos e ghost ficam fluidos respeitando margens da section (36px) */
+    section a.btn-yellow-hover,
+    section a.hero-btn-primary,
+    section a.hero-btn-secondary,
+    section a[class*="bg-brand-yellow"],
+    section a[class*="btn-yellow-hover"] {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      white-space: normal !important;
+      box-sizing: border-box !important;
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+      font-size: 16px !important;
+    }
+
+    /* Container dos CTAs também full pra alinhar com a margem da page */
+    .hero-buttons,
+    section a[class*="bg-brand-yellow"] {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* Header CTA primário (botão "Quero simular parcelamento" no topo): também full no mobile */
+    header a.btn-primary { width: 100% !important; max-width: 100% !important; }
+  }
+
+  /* ========== MOBILE PEQUENO (<=380px) — encurta textos longos pra não quebrar ========== */
+  @media (max-width: 380px) {
+    section a.btn-yellow-hover,
+    section a.hero-btn-primary,
+    section a.hero-btn-secondary,
+    section a[class*="bg-brand-yellow"] {
+      font-size: 14px !important;
+      padding-top: 14px !important;
+      padding-bottom: 14px !important;
+      letter-spacing: 0 !important;
+    }
   }
 
   /* ============ MICROINTERAÇÕES ============ */
@@ -739,7 +779,7 @@
   #hero-next:hover svg path { stroke: #ffb800; }
   #hero-prev, #hero-next, #hero-prev svg path, #hero-next svg path { transition: background .2s ease, stroke .2s ease; }
   /* ===== HERO MOBILE (<768px): imagem em cima -> texto -> botões largura total + contador ===== */
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     .kicker-full { display: none; }
     .kicker-short { display: inline; }
     /* mobile: slides voltam ao fluxo normal (não absolutos) */
@@ -955,7 +995,7 @@
 
 <style>
   /* ===== INFRAESTRUTURA MOBILE (<768px): cabeçalho responsivo + cards empilhados ===== */
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     #infraestrutura { padding-bottom: 48px !important; }
     #infraestrutura > div { gap: 24px !important; }
     /* cabeçalho: tipografia mobile */
@@ -1242,7 +1282,7 @@
 
 <style>
   /* Responsividade dobra Como Funciona */
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     #como-funciona .cf-desktop { display: none !important; }
     #como-funciona .cf-mobile { display: block !important; }
   }
@@ -1481,7 +1521,7 @@
 </section>
 
 <!-- ============ DOBRA 4 - MODELOS ============ -->
-<section id="modelos" class="bg-white relative" style="padding-top: 96px; padding-bottom: 72px; overflow-x: clip;">
+<section id="modelos" class="bg-brand-beige-light relative" style="padding-top: 96px; padding-bottom: 72px; overflow-x: clip;">
   <!-- iMac removido daqui: agora é uma imagem única ancorada na dobra Empresas acima,
        que transborda pra cá. Mantido só o iMac mobile (full bleed) abaixo. -->
   <div class="container-fig relative">
@@ -1963,7 +2003,7 @@
 
 <style>
   /* Responsividade dobra FAQ */
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     .faq-desktop { display: none !important; }
     .faq-mobile { display: block !important; }
     #faq { padding-left: 0 !important; padding-right: 0 !important; }
@@ -2133,7 +2173,7 @@
 
 <style>
   /* Footer responsivo: empilha colunas no mobile (Figma node 4010:14566, pad 36) */
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     #site-footer { padding-left: 36px !important; padding-right: 36px !important; padding-bottom: 48px !important; }
     /* espaçamento de 56px entre os blocos empilhados (logo / Links / Outros / Contato) */
     #site-footer .footer-cols { flex-direction: column !important; gap: 56px !important; }
