@@ -263,7 +263,7 @@
 
     /* RESPIRO PADRÃO DO TOPO: 56px de padding-top em todas as dobras (Figma mobile).
        O hero (#solucao) é exceção: tem diagramação própria (imagem cola no topo). */
-    section:not(#solucao) { padding-top: 56px !important; }
+    section:not(#solucao) { padding-top: 40px !important; }
     /* A dobra Como Funciona controla seu espaço superior via .cf-mobile (24px). Zera o padding-top da section para não somar. */
     section#como-funciona:not(#solucao) { padding-top: 0 !important; }
     /* Carrossel Impacto: esconde grade desktop, mostra carrossel no mobile */
@@ -344,7 +344,7 @@
     section#solucao-cta:not(#solucao):not(#como-funciona):not(#faq) { padding-bottom: 32px !important; }
     /* RESPIRO PADRÃO DA BASE: padding-bottom de desktop (96-140px) é excessivo no mobile.
        Padroniza em 56px. Seções com mobile dedicado/0 mantêm o seu. */
-    section:not(#solucao):not(#como-funciona):not(#faq) { padding-bottom: 56px !important; }
+    section:not(#solucao):not(#como-funciona):not(#faq) { padding-bottom: 40px !important; }
 
     /* CORREÇÃO DE ESPAÇOS EM BRANCO: colunas/boxes com altura fixa de desktop
        reservam espaço vazio no mobile. Neutraliza alturas fixas para auto. */
@@ -464,12 +464,12 @@
     /* ========== AJUSTES MOBILE DOBRA A DOBRA ========== */
     /* Dobra Flexibilidade (Obrigações, sem id) — topo e base 56px no mobile */
     section.bg-white[style*="padding: 24px 107px 56px 107px"]:not(#solucao):not(#como-funciona):not(#faq) {
-      padding-top: 56px !important;
-      padding-bottom: 56px !important;
+      padding-top: 40px !important;
+      padding-bottom: 40px !important;
     }
 
     /* Dobra Empresas — margin top/bottom mobile (cai pra 56px global, reforça) */
-    #empresas { padding-top: 56px !important; padding-bottom: 56px !important; }
+    #empresas { padding-top: 40px !important; padding-bottom: 40px !important; }
 
     /* Dobra Modelos — centralizar imagem do mockup mobile */
     #modelos .modelos-img-mobile {
@@ -483,7 +483,7 @@
     }
 
     /* Dobra Quem somos — espaçamentos topo, base, e antes do carrossel */
-    #quem-somos { padding-top: 56px !important; padding-bottom: 56px !important; }
+    #quem-somos { padding-top: 40px !important; padding-bottom: 40px !important; }
     /* O container interno tem padding: 96px 0 — reduz no mobile */
     #quem-somos .relative.flex.items-center[style*="padding: 96px 0"] { padding: 0 !important; gap: 24px !important; }
     /* Gap entre o texto (parágrafo) e o carrossel — reduz */
@@ -491,6 +491,16 @@
 
     /* FAQ mobile — accordions na mesma altura (baseando pelo maior) */
     #faq .faq-mobile details > summary { min-height: 72px !important; align-items: center !important; }
+
+    /* Quebras de texto equilibradas: distribui linhas automaticamente nos títulos.
+       Suportado por Chrome 114+, Safari 17.5+, Firefox 121+. Em browsers antigos,
+       degrada gracefully (sem balance, mas funciona). */
+    section h1, section h2, section h3 {
+      text-wrap: balance;
+    }
+    section p {
+      text-wrap: pretty;
+    }
 
     /* ========== BOTÕES MOBILE — full width, dentro da margem, sem quebrar texto ========== */
     /* Todos os CTAs amarelos e ghost ficam fluidos respeitando margens da section (36px) */
@@ -1527,7 +1537,7 @@
   <div class="container-fig relative">
 
     <!-- Imagem do iMac no início da dobra — SOMENTE MOBILE. Full bleed. Fundo branco até 64px antes da base; nesses 64px finais o bege da dobra aparece (altura do mouse). -->
-    <img loading="lazy" decoding="async" src="public/images/sections/secao-como-operar_2.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="modelos-img-mobile" style="display: none; width: calc(100% + 120px); max-width: none; margin-left: -60px; margin-right: -60px; height: auto; margin-bottom: 32px; background: linear-gradient(to bottom, #ffffff calc(100% - 64px), transparent calc(100% - 64px));" />
+    <img loading="lazy" decoding="async" src="public/images/sections/secao-como-operar_2.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="modelos-img-mobile" style="display: none; width: calc(100% + 120px); max-width: none; margin-left: -60px; margin-right: -60px; height: auto; margin-bottom: 32px;" />
 
     <!-- COLUNA ESQUERDA: Texto + cards (padding-left maior pra criar espaço) -->
     <div class="modelos-texto relative z-10 lg:pl-24" style="max-width: 800px;">
