@@ -460,6 +460,37 @@
     section [style*="gap: 96px"] > div:has(img),
     section [style*="gap: 72px"] > div:has(img),
     section [style*="gap: 64px"] > div:has(img) { order: -1 !important; }
+
+    /* ========== AJUSTES MOBILE DOBRA A DOBRA ========== */
+    /* Dobra Flexibilidade (Obrigações, sem id) — topo e base 56px no mobile */
+    section.bg-white[style*="padding: 24px 107px 56px 107px"]:not(#solucao):not(#como-funciona):not(#faq) {
+      padding-top: 56px !important;
+      padding-bottom: 56px !important;
+    }
+
+    /* Dobra Empresas — margin top/bottom mobile (cai pra 56px global, reforça) */
+    #empresas { padding-top: 56px !important; padding-bottom: 56px !important; }
+
+    /* Dobra Modelos — centralizar imagem do mockup mobile */
+    #modelos .modelos-img-mobile {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      display: block !important;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    /* Dobra Quem somos — espaçamentos topo, base, e antes do carrossel */
+    #quem-somos { padding-top: 56px !important; padding-bottom: 56px !important; }
+    /* O container interno tem padding: 96px 0 — reduz no mobile */
+    #quem-somos .relative.flex.items-center[style*="padding: 96px 0"] { padding: 0 !important; gap: 24px !important; }
+    /* Gap entre o texto (parágrafo) e o carrossel — reduz */
+    #quem-somos .quem-mobile { margin-top: 16px !important; }
+
+    /* FAQ mobile — accordions na mesma altura (baseando pelo maior) */
+    #faq .faq-mobile details > summary { min-height: 72px !important; align-items: center !important; }
   }
 
   /* ============ MICROINTERAÇÕES ============ */
@@ -696,7 +727,7 @@
   .hero-slides-area { position: relative; }
   .hero-slides-area .hero-slide { position: absolute; top: 0; left: 0; width: 100%; }
   /* sombra de elevação na imagem do hero (desktop) — segue o contorno do shape */
-  .hero-img-box .hero-slide-img { filter: drop-shadow(0 18px 28px rgba(55, 27, 1, 0.18)) drop-shadow(0 6px 10px rgba(55, 27, 1, 0.10)); }
+  .hero-img-box .hero-slide-img { object-position: center !important; filter: drop-shadow(0 18px 28px rgba(55, 27, 1, 0.18)) drop-shadow(0 6px 10px rgba(55, 27, 1, 0.10)); }
   /* ===== HOVER das setas do hero (CSS robusto) ===== */
   #hero-prev { background: #371b01; }
   #hero-prev svg path { stroke: #ffb800; }
@@ -716,7 +747,7 @@
     #solucao .hero-slides-area .hero-slide { position: relative !important; }
     #solucao .hero-slider, #solucao #hero-slider { flex-direction: column !important; }
     /* imagem primeiro; vira âncora de posicionamento das setas */
-    #solucao .hero-col-img { order: -1 !important; width: 100% !important; position: relative !important; }
+    #solucao .hero-col-img { order: -1 !important; width: 100% !important; position: relative !important; display: flex !important; justify-content: center !important; }
     /* mobile usa a imagem dedicada (formato domo) como background do box */
     #solucao .hero-img-box {
       /* Hero estático no mobile: imagem maior, sangrando até as bordas da tela
