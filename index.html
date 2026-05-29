@@ -1481,13 +1481,6 @@
 
 <!-- ============ DOBRA 7 - EMPRESAS QUE UTILIZAM ============ -->
 <section id="empresas" class="bg-white relative" style="padding: 16px 107px 140px 107px; overflow-x: clip;">
-  <!-- iMac COMPLETO (imagem única) ancorado no canto inferior direito da dobra Empresas,
-       transbordando pra baixo até a dobra Modelos. Substitui as duas metades antigas
-       (Imagem dobra 4 + Imagem dobra 5) pra eliminar a emenda. right:0, width:670 = encostado na borda. -->
-  <div class="hidden lg:block absolute pointer-events-none" style="right: 0; bottom: -150px; width: 780px; z-index: 5;">
-    <img loading="lazy" decoding="async" src="public/images/sections/imac-completo.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="block w-full h-auto" />
-  </div>
-
   <div class="relative z-10 flex flex-col" style="gap: 72px; max-width: 1153px; margin: 0 auto;">
     <div class="reveal flex flex-col items-center w-full">
       <!-- Kicker -->
@@ -1535,6 +1528,11 @@
 
 <!-- ============ DOBRA 4 - MODELOS ============ -->
 <section id="modelos" class="bg-brand-beige-light relative" style="padding-top: 96px; padding-bottom: 72px; overflow-x: clip;">
+  <!-- iMac COMPLETO (imagem única) ancorada à direita da dobra Modelos.
+       top:-100 faz o topinho transbordar pra cima da dobra Empresas; o resto fica sobre o bege. -->
+  <div class="hidden lg:block absolute pointer-events-none" style="right: 0; top: -180px; width: 820px; z-index: 5;">
+    <img loading="lazy" decoding="async" src="public/images/sections/imac-completo.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="block w-full h-auto" />
+  </div>
   <!-- iMac removido daqui: agora é uma imagem única ancorada na dobra Empresas acima,
        que transborda pra cá. Mantido só o iMac mobile (full bleed) abaixo. -->
   <div class="container-fig relative">
