@@ -463,8 +463,8 @@
 
     /* ========== AJUSTES MOBILE DOBRA A DOBRA ========== */
     /* Dobra Flexibilidade (Obrigações, sem id) — topo e base 56px no mobile */
-    section.bg-white[style*="padding: 24px 107px 56px 107px"]:not(#solucao):not(#como-funciona):not(#faq) {
-      padding-top: 40px !important;
+    section.bg-white[style*="padding: 16px 107px 56px 107px"]:not(#solucao):not(#como-funciona):not(#faq) {
+      padding-top: 24px !important;
       padding-bottom: 40px !important;
     }
 
@@ -488,6 +488,9 @@
     #quem-somos .relative.flex.items-center[style*="padding: 96px 0"] { padding: 0 !important; gap: 24px !important; }
     /* Gap entre o texto (parágrafo) e o carrossel — reduz */
     #quem-somos .quem-mobile { margin-top: 16px !important; }
+
+    /* Obrigações: padroniza gap header→cards no mobile (16px, igual ao Quem somos) */
+    section .flex.flex-col.w-full[style*="gap: 40px"] { gap: 16px !important; }
 
     /* FAQ mobile — accordions na mesma altura (baseando pelo maior) */
     #faq .faq-mobile details > summary { min-height: 72px !important; align-items: center !important; }
@@ -1299,7 +1302,7 @@
 </style>
 
 <!-- ============ DOBRA 6 - OBRIGAÇÕES (CONTABILIDADES) ============ -->
-<section class="bg-white relative" style="padding: 24px 107px 56px 107px;">
+<section class="bg-white relative" style="padding: 16px 107px 56px 107px;">
   <div class="flex flex-col w-full" style="gap: 40px; max-width: 1153px; margin: 0 auto;">
 
     <!-- HEADER (Context + Kicker v2) -->
@@ -1481,7 +1484,7 @@
   <!-- iMac COMPLETO (imagem única) ancorado no canto inferior direito da dobra Empresas,
        transbordando pra baixo até a dobra Modelos. Substitui as duas metades antigas
        (Imagem dobra 4 + Imagem dobra 5) pra eliminar a emenda. right:0, width:670 = encostado na borda. -->
-  <div class="hidden lg:block absolute pointer-events-none" style="right: 0; bottom: -430px; width: 670px; z-index: 5;">
+  <div class="hidden lg:block absolute pointer-events-none" style="right: 0; bottom: -150px; width: 670px; z-index: 5;">
     <img loading="lazy" decoding="async" src="public/images/sections/imac-completo.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="block w-full h-auto" />
   </div>
 
