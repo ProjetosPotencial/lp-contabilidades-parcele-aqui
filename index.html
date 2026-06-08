@@ -1007,28 +1007,48 @@
 </section>
 
 <style>
-  /* ===== INFRAESTRUTURA MOBILE (<768px): cabeçalho responsivo + cards empilhados ===== */
-  @media (max-width: 1023px) {
-    #infraestrutura { padding-bottom: 48px !important; }
-    #infraestrutura > div { gap: 24px !important; }
-    /* cabeçalho: tipografia mobile */
-    #infraestrutura h2 { font-size: 32px !important; line-height: 38px !important; }
-    /* subtitle: remove o padding lateral gigante do desktop */
-    #infraestrutura div[style*="padding: 16px 174px"] { padding: 16px 0 0 0 !important; }
-    /* cards: empilhados verticalmente, largura total */
-    #infraestrutura .infra-cards {
-      flex-direction: column !important;
-      height: auto !important;
-      gap: 16px !important;
-    }
-    #infraestrutura .infra-cards > article {
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 0 !important;
-      height: auto !important;
-      padding: 24px !important;
-    }
+ /* ===== INFRAESTRUTURA MOBILE (<768px): cabeçalho responsivo + cards empilhados ===== */
+@media (max-width: 768px) {
+
+  /* seu CSS atual */
+
+  .hero-wrap {
+    flex-direction: column !important;
+    gap: 40px !important;
   }
+
+  .hero-col-text,
+  .hero-col-img {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hero-img-box {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .hero-img-box img {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .hero-buttons a {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  [style*="width: 660px"],
+  [style*="width: 600px"],
+  [style*="width: 563px"],
+  [style*="width: 466px"],
+  [style*="width: 369px"] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+}
 </style>
 
 <!-- ============ DOBRA 01 - PROBLEMA / GARGALO ============ -->
@@ -1552,7 +1572,13 @@
       <p class="text-base font-medium text-brand-text-secondary leading-6">Escolha estratégica</p>
 
       <!-- Headline (40px / 48px, max-width 563px) -->
-      <h2 class="heading mt-1" style="font-size: 40px; line-height: 48px; letter-spacing: 0.2px; max-width: 563px;">Você escolhe como operar:<br/><strong class="font-bold">com a sua marca ou com a marca Parcele Aqui.</strong></h2>
+      <h2 class="heading mt-1"
+style="
+font-size: clamp(28px, 4vw, 40px);
+line-height: 1.2;
+letter-spacing: 0.2px;
+max-width: 563px;
+">Você escolhe como operar:<br/><strong class="font-bold">com a sua marca ou com a marca Parcele Aqui.</strong></h2>
 
       <!-- Subtitle (16/24, 563px) -->
       <p class="content mt-4 text-brand-text-secondary" style="font-size: 16px; line-height: 24px; max-width: 563px;">O mesmo produto, <strong class="font-bold">a mesma segurança e eficiência</strong>,<br/>no formato que melhor fortalece o posicionamento<br/>do seu escritório.</p>
