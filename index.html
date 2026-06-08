@@ -2324,6 +2324,183 @@
   }
 
 }
+  /* ==========================================
+   RESPONSIVO GLOBAL - MOBILE E TABLET
+   ========================================== */
+
+@media screen and (max-width: 1023px) {
+
+  html,
+  body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  section,
+  footer {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .container-fig {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* HERO */
+
+  .hero-wrap,
+  #hero-slider {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .hero-col-text,
+  .hero-col-img,
+  .hero-img-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .hero-col-text {
+    padding-top: 0 !important;
+    min-height: auto !important;
+  }
+
+  .hero-slides-area {
+    min-height: auto !important;
+  }
+
+  .hero-img-box img {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  /* TITULOS */
+
+  h1 {
+    font-size: 34px !important;
+    line-height: 40px !important;
+    text-align: center !important;
+  }
+
+  h2 {
+    font-size: 30px !important;
+    line-height: 36px !important;
+  }
+
+  h3 {
+    font-size: 24px !important;
+    line-height: 30px !important;
+  }
+
+  p {
+    word-break: normal !important;
+  }
+
+  /* TEXTO CENTRALIZADO */
+
+  .hero-kicker,
+  .hero-col-text p,
+  .hero-col-text h1 {
+    text-align: center !important;
+  }
+
+  /* BOTÕES */
+
+  .hero-buttons,
+  .hero-btn-primary,
+  .hero-btn-secondary,
+  .btn-primary,
+  .btn-secondary {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* CARDS */
+
+  .quem-card,
+  article,
+  [class*="card"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+  }
+
+  /* GRIDS */
+
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* FLEX */
+
+  [style*="gap: 124px"],
+  [style*="gap: 120px"],
+  [style*="gap: 96px"],
+  [style*="gap: 72px"],
+  [style*="gap: 64px"] {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  /* IMAGENS */
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* ESCONDE SETAS DO HERO */
+
+  .hero-arrows {
+    display: none !important;
+  }
+
+  /* QUEM SOMOS */
+
+  #quem-somos {
+    padding-top: 20px !important;
+  }
+
+  #quem-somos .quem-mobile {
+    margin-top: -30px !important;
+  }
+
+  #quem-somos h2,
+  #quem-somos p {
+    text-align: center !important;
+  }
+}
+
+/* MOBILE PEQUENO */
+
+@media screen and (max-width: 480px) {
+
+  h1 {
+    font-size: 30px !important;
+    line-height: 36px !important;
+  }
+
+  h2 {
+    font-size: 26px !important;
+    line-height: 32px !important;
+  }
+
+  section,
+  footer,
+  .container-fig {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+}
 </style>
 
 <!-- Microsoft Clarity -->
