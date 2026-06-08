@@ -2197,6 +2197,133 @@
   }
   /* desktop: copyright em uma linha só */
   #site-footer .cnpj-break { display: none; }
+
+  /* =====================================================
+   CORREÇÃO DEFINITIVA - MOBILE E TABLET
+   MODELOS DE OPERAÇÃO
+   ===================================================== */
+
+@media screen and (max-width: 1023px) {
+
+  /* margem padrão mobile */
+  section,
+  footer,
+  .container-fig {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* seção modelos */
+  #modelos {
+    overflow: hidden !important;
+    padding-top: 32px !important;
+    padding-bottom: 40px !important;
+  }
+
+  /* título */
+  #modelos h2 {
+    font-size: 32px !important;
+    line-height: 38px !important;
+    text-align: left !important;
+  }
+
+  #modelos p {
+    max-width: 100% !important;
+  }
+
+  /* imagem */
+  #modelos img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* qualquer container flex vira coluna */
+  #modelos [style*="gap: 124px"],
+  #modelos [style*="gap: 120px"],
+  #modelos [style*="gap: 96px"],
+  #modelos [style*="gap: 72px"],
+  #modelos [style*="gap: 64px"] {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  /* carrossel */
+  #modelos .modelos-track,
+  #modelos .overflow-x-auto {
+    display: flex !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    gap: 16px !important;
+
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #modelos .modelos-track::-webkit-scrollbar,
+  #modelos .overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* cards */
+  #modelos article,
+  #modelos .modelos-card,
+  #modelos [class*="card"] {
+
+    width: calc(100vw - 40px) !important;
+    min-width: calc(100vw - 40px) !important;
+    max-width: calc(100vw - 40px) !important;
+
+    box-sizing: border-box !important;
+
+    scroll-snap-align: start;
+
+    margin: 0 !important;
+  }
+
+  /* conteúdo dos cards */
+  #modelos article h3,
+  #modelos article h4,
+  #modelos article p {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* botão */
+  #modelos a.btn-primary,
+  #modelos a.btn-yellow-hover,
+  #modelos a[href="#cta"] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+}
+
+/* MOBILE PEQUENO */
+
+@media screen and (max-width: 480px) {
+
+  #modelos h2 {
+    font-size: 28px !important;
+    line-height: 34px !important;
+  }
+
+  #modelos article,
+  #modelos .modelos-card,
+  #modelos [class*="card"] {
+
+    width: calc(100vw - 32px) !important;
+    min-width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important;
+  }
+
+}
 </style>
 
 <!-- Microsoft Clarity -->
