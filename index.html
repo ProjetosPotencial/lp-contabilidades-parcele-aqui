@@ -297,11 +297,11 @@
     .modelos-img-mobile { display: block !important; }
     /* Dobra modelos no mobile: zera padding-top (imagem encosta no topo). O container-fig também perde o padding-top. */
     section#modelos:not(#solucao) { padding-top: 0 !important; }
-    section#modelos .container-fig { padding-top: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
+    section#modelos .container-fig { padding-top: 0 !important; padding-left: 36px !important; padding-right: 36px !important; }
     /* Container de texto da dobra modelos: fluído com 36px de margem (padrão da LP). */
     .modelos-texto { width: 100% !important; max-width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; }
     /* Imagem full bleed: compensa os 36px da section (container-fig zerado). Margens simétricas = centralizada. */
-    .modelos-img-mobile { margin-left: -36px !important; margin-right: -36px !important; width: calc(100% + 72px) !important; display: block !important; object-fit: contain; object-position: center; }
+    .modelos-img-mobile { margin-left: auto !important; margin-right: auto !important; width: 100% !important; max-width: calc(100% - 0px) !important; display: block !important; object-fit: contain; object-position: center; }
     /* CTA da dobra modelos: largura total do container (com os 36px de margem da section), em uma linha. */
     section#modelos a[href="#cta"] { font-size: 16px !important; padding-left: 16px !important; padding-right: 16px !important; display: flex !important; width: 100% !important; max-width: 100% !important; }
     /* Selos de certificação (dobra Segurança) no mobile: empilhados verticalmente, centralizados, gap 56px entre todos (conforme Figma node 4010-14302). */
@@ -471,7 +471,7 @@
     /* Dobra Empresas — margin top/bottom mobile (cai pra 56px global, reforça) */
     #empresas { padding-top: 40px !important; padding-bottom: 40px !important; }
 
-    /* Dobra Modelos — centralizar imagem do mockup mobile */
+    /* Dobra Modelos — mobile: iMac centralizado com 36px margem cada lado (vem do container-fig) + layout empilhado */
     #modelos .modelos-img-mobile {
       margin-left: auto !important;
       margin-right: auto !important;
@@ -481,6 +481,8 @@
       object-fit: contain;
       object-position: center;
     }
+    #modelos .modelos-layout { gap: 24px !important; }
+    #modelos .modelos-texto { padding-left: 0 !important; max-width: 100% !important; }
 
     /* Dobra Quem somos — espaçamentos topo, base, e antes do carrossel */
     #quem-somos { padding-top: 40px !important; padding-bottom: 40px !important; }
@@ -1481,141 +1483,136 @@
 
 <!-- ============ DOBRA 7 - EMPRESAS QUE UTILIZAM ============ -->
 <section id="empresas" class="bg-white relative" style="padding: 16px 107px 140px 107px; overflow-x: clip;">
-  <!-- iMac ancorado na base da dobra Empresas: o mouse na foto coincide com o início do bege da Modelos abaixo. -->
-  <img loading="lazy" decoding="async" src="public/images/sections/imac-completo.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="hidden lg:block absolute img-fade pointer-events-none" style="right: 0; bottom: 0; width: 667px; height: auto; border-bottom-left-radius: 60px; filter: drop-shadow(0 18px 28px rgba(55, 27, 1, 0.15)) drop-shadow(0 6px 10px rgba(55, 27, 1, 0.08)); z-index: 5;" />
-
-  <!-- iMac COMPLETO (imagem única) - centralizado em relação ao container -->
-    <div class="relative z-10 flex flex-col" style="gap: 72px; max-width: 1153px; margin: 0 auto;">
-    <div class="reveal flex flex-col items-center w-full is-visible">
+  <div class="relative z-10 flex flex-col" style="gap: 72px; max-width: 1153px; margin: 0 auto;">
+    <div class="reveal flex flex-col items-center w-full">
       <!-- Kicker -->
-      <p class="text-brand-text-secondary text-center" style="font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 16px; line-height: 24px; padding-bottom: 4px;" data-orig-html="Empresas que já utilizam">Empresas que já utilizam</p>
+      <p class="text-brand-text-secondary text-center" style="font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 16px; line-height: 24px; padding-bottom: 4px;">Quem já confia</p>
 
       <!-- Headline (Kufam 40/48, 2 linhas, regular + bold) -->
-      <h2 class="text-center" style="font-family: 'Kufam', sans-serif; font-size: 40px; line-height: 48px; letter-spacing: 0.2px; color: #371b01; max-width: 1152px;" data-orig-html="
-        &lt;span style=&quot;font-weight: 400; display: block;&quot;&gt;Presente em empresas que utilizam&lt;/span&gt;
-        &lt;span style=&quot;font-weight: 700; display: block;&quot;&gt;o parcelamento como estratégia de fechamento&lt;/span&gt;
-      ">
-        <span style="font-weight: 400; display: block;">Presente em empresas que utilizam</span>
-        <span style="font-weight: 700; display: block;">o parcelamento como estratégia de fechamento</span>
+      <h2 class="text-center" style="font-family: 'Kufam', sans-serif; font-size: 40px; line-height: 48px; letter-spacing: 0.2px; color: #371b01; max-width: 1152px;">
+        <span style="font-weight: 400; display: block;">Contabilidades e parceiros</span>
+        <span style="font-weight: 700; display: block;">que já operam com o Parcele Aqui</span>
       </h2>
 
       <!-- Subtitle (Figma: px-196 py-16) -->
       <div class="w-full" style="padding: 16px 196px;">
-        <p class="text-center" style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;" data-orig-html="O Parcele Aqui já apoia empresas de diferentes segmentos, ajudando a transformar barreiras financeiras em oportunidades reais de fechamento, com operações processadas por meio&lt;br&gt;da adquirência Cielo, garantindo segurança, confiabilidade e liquidação à vista para você.">O Parcele Aqui já apoia empresas de diferentes segmentos, ajudando a transformar barreiras financeiras em oportunidades reais de fechamento, com operações processadas por meio<br>da adquirência Cielo, garantindo segurança, confiabilidade e liquidação à vista para você.</p>
+        <p class="text-center" style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">Empresas que utilizam o Parcele Aqui para destravar negociações e acelerar fechamentos, com operações processadas por meio da adquirência <strong style="font-weight: 700;">Cielo</strong>,<br/>garantindo segurança, confiabilidade e liquidação à vista para o emissor.</p>
       </div>
 
       <!-- Grid 4×4 de logos (células uniformes, centralizado) -->
-      <div class="w-full" style="padding: 24px 96px;">
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); row-gap: 48px; column-gap: 32px; align-items: center; justify-items: center;">
+      <div class="w-full" style="padding: 16px 48px;">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); row-gap: 32px; column-gap: 16px; align-items: center; justify-items: center;">
           <!-- Fileira 1 -->
-          <img loading="lazy" decoding="async" src="public/images/logos/Bradesco default.svg" alt="Bradesco" class="object-contain" style="max-height: 72px; max-width: 180px;">
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 2.svg" alt="Banco do Brasil" class="object-contain" style="max-height: 88px; max-width: 200px;">
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 3.svg" alt="Itaú" class="object-contain" style="max-height: 56px; max-width: 160px;">
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 4.svg" alt="Western Union" class="object-contain" style="max-height: 56px; max-width: 160px;">
+          <img loading="lazy" decoding="async" src="public/images/logos/Bradesco default.svg" alt="Bradesco" class="object-contain" style="max-height: 72px; max-width: 200px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 2.svg" alt="Banco do Brasil" class="object-contain" style="max-height: 72px; max-width: 200px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 3.svg" alt="Itaú" class="object-contain" style="max-height: 72px; max-width: 200px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 4.svg" alt="Western Union" class="object-contain" style="max-height: 72px; max-width: 200px;" />
           <!-- Fileira 2 -->
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 7.jpg" alt="Contabilidade Diplomata" class="object-contain" style="max-height: 92px; max-width: 180px;">
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 9.jpg" alt="Assescont" class="object-contain" style="max-height: 72px; max-width: 160px;">
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 5.jpg" alt="SR Eis Contabilidade" class="object-contain" style="max-height: 72px; max-width: 160px;">
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 6.jpg" alt="Capitale" class="object-contain" style="max-height: 56px; max-width: 160px;">
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 7.jpg" alt="Contabilidade Diplomata" class="object-contain" style="max-height: 72px; max-width: 200px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 9.jpg" alt="Assescont" class="object-contain" style="max-height: 72px; max-width: 200px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 5.jpg" alt="SR Eis Contabilidade" class="object-contain" style="max-height: 72px; max-width: 200px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 6.jpg" alt="Capitale" class="object-contain" style="max-height: 72px; max-width: 200px;" />
           <!-- Fileira 3 -->
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 14.svg" alt="Detran-MS" class="object-contain" style="max-height: 72px; max-width: 160px;">
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 15.svg" alt="Detran-PR" class="object-contain" style="max-height: 56px; max-width: 160px;">
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 16.svg" alt="Poupatempo" class="object-contain" style="max-height: 48px; max-width: 160px;">
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 17.svg" alt="UAI" class="object-contain" style="max-height: 64px; max-width: 160px;">
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 14.svg" alt="Detran-MS" class="object-contain" style="max-height: 72px; max-width: 200px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 15.svg" alt="Detran-PR" class="object-contain" style="max-height: 72px; max-width: 200px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 16.svg" alt="Poupatempo" class="object-contain" style="max-height: 72px; max-width: 200px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 17.svg" alt="UAI" class="object-contain" style="max-height: 72px; max-width: 200px;" />
           <!-- Fileira 4 -->
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 8.svg" alt="Protege" class="object-contain" style="max-height: 72px; max-width: 160px;">
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 10.svg" alt="BRINKS" class="object-contain" style="max-height: 40px; max-width: 160px;">
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 11.svg" alt="Prosegur" class="object-contain" style="max-height: 80px; max-width: 200px;">
-          <img loading="lazy" decoding="async" src="public/images/logos/Component 12.svg" alt="Prodesp" class="object-contain" style="max-height: 56px; max-width: 160px;">
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 8.svg" alt="Protege" class="object-contain" style="max-height: 72px; max-width: 200px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 10.svg" alt="BRINKS" class="object-contain" style="max-height: 72px; max-width: 200px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 11.svg" alt="Prosegur" class="object-contain" style="max-height: 72px; max-width: 200px;" />
+          <img loading="lazy" decoding="async" src="public/images/logos/Component 12.svg" alt="Prodesp" class="object-contain" style="max-height: 72px; max-width: 200px;" />
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ DOBRA 4 - MODELOS (Escolha estratégica) ============ -->
-<section id="modelos" class="bg-brand-beige-light relative overflow-hidden" style="padding: 96px 107px 72px 107px;">
-  <div class="relative" style="max-width: 1153px; margin: 0 auto;">
+<!-- ============ DOBRA 4 - MODELOS ============ -->
+<section id="modelos" class="bg-brand-beige-light relative" style="padding-top: 96px; padding-bottom: 72px; overflow-x: clip;">
+  <div class="container-fig relative">
 
-    <!-- ===== MOBILE: iMac full-bleed no topo (estrutura anterior) ===== -->
-    <img loading="lazy" decoding="async" src="public/images/sections/secao-como-operar_2.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="modelos-img-mobile lg:hidden" style="display: block; width: calc(100% + 120px); max-width: none; margin-left: -60px; margin-right: -60px; height: auto; margin-bottom: 32px;" />
+    <!-- MOBILE (<lg): iMac no topo, centralizado com margem 36px de cada lado -->
+    <img loading="lazy" decoding="async" src="public/images/sections/secao-como-operar_2.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="modelos-img-mobile lg:hidden" style="display: block; width: 100%; max-width: 100%; height: auto; margin: 0 auto 32px auto; object-fit: contain;" />
 
-    <!-- COLUNA ESQUERDA: Texto + cards + slogan + CTA -->
-    <div class="modelos-texto relative z-10" style="max-width: 660px;">
-      <!-- Kicker -->
-      <p class="text-base font-medium text-brand-text-secondary leading-6">Escolha estratégica</p>
+    <!-- DESKTOP (lg+): layout 2 colunas — texto à esquerda, iMac à direita, atrelado ao conteúdo -->
+    <div class="modelos-layout flex flex-col lg:flex-row lg:items-start" style="gap: 48px;">
 
-      <!-- Headline -->
-      <h2 class="heading mt-1" style="font-family: 'Kufam', sans-serif; font-size: 40px; line-height: 48px; letter-spacing: 0.2px; max-width: 563px; color: #371b01;">
-        <span style="font-weight: 400;">Você escolhe como operar:<br/></span><span style="font-weight: 700;">com a sua marca ou com a marca Parcele Aqui.</span>
-      </h2>
-
-      <!-- Body -->
-      <p class="content mt-4 text-brand-text-secondary" style="font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 24px; max-width: 500px;">O mesmo produto, <strong style="font-weight: 700;">a mesma segurança e eficiência</strong>, no formato que melhor fortalece o posicionamento do seu escritório.</p>
-
-      <!-- 2 cards lado a lado -->
-      <div class="mt-8 flex flex-col sm:flex-row" style="gap: 80px;">
-        <!-- Card 1: Whitelabel -->
-        <div class="flex-shrink-0" style="width: 280px; display: flex; flex-direction: column; gap: 8px;">
-          <img loading="lazy" decoding="async" src="public/images/icons/whitelabel.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;" />
-          <h3 style="font-family: 'Kufam', sans-serif; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01;">
-            <span style="font-weight: 500;">Plataforma com<br/></span><span style="font-weight: 700;">a sua marca </span><span style="font-weight: 700; font-size: 12px;">(Whitelabel)</span>
-          </h3>
-          <div style="padding-top: 16px; display: flex; flex-direction: column; gap: 16px;">
-            <div style="display: flex; align-items: flex-start; gap: 8px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6" stroke="#e6ac00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span style="font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 24px; color: #2e2e2e;">Experiência personalizada para o cliente</span>
-            </div>
-            <div style="display: flex; align-items: flex-start; gap: 8px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6" stroke="#e6ac00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span style="font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 24px; color: #2e2e2e;">Fortalece a identidade do escritório</span>
-            </div>
-            <div style="display: flex; align-items: flex-start; gap: 8px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6" stroke="#e6ac00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span style="font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 24px; color: #2e2e2e;">Sensação de serviço exclusivo</span>
-            </div>
+      <!-- COLUNA 1: Texto + cards (padding-left maior pra criar espaço) -->
+      <div class="modelos-texto relative z-10 lg:pl-24" style="max-width: 800px;">
+        <!-- Kicker -->
+        <p class="text-base font-medium text-brand-text-secondary leading-6" data-orig-html="Flexibilidade para o seu modelo de negócio">Flexibilidade para o seu modelo de negócio</p>
+        <!-- Headline (40px / 48px, max-width 563px) -->
+        <h2 class="heading mt-1" style="font-size: 40px; line-height: 48px; letter-spacing: 0.2px; max-width: 563px;" data-orig-html="Você escolhe como&lt;br&gt;&lt;strong class=&quot;font-bold&quot;&gt;operar com o Parcele Aqui&lt;/strong&gt;">Você escolhe como<br><strong class="font-bold">operar com o Parcele Aqui</strong></h2>
+        <!-- Subtitle (16/24, 563px) -->
+        <p class="content mt-4 text-brand-text-secondary" style="font-size: 16px; line-height: 24px; max-width: 563px;" data-orig-html="O mesmo produto, &lt;strong class=&quot;font-bold&quot;&gt;a mesma segurança e eficiência&lt;/strong&gt;,&lt;br&gt;no formato que melhor fortalece o posicionamento&lt;br&gt;do seu escritório.">O mesmo produto, <strong class="font-bold">a mesma segurança e eficiência</strong>,<br>no formato que melhor fortalece o posicionamento<br>do seu escritório.</p>
+        <!-- 2 modelos lado a lado (369px cada, gap 24px) -->
+        <div class="mt-8 flex flex-col sm:flex-row gap-6">
+          <!-- Modelo 1: Whitelabel (369px) -->
+          <div class="flex-shrink-0" style="width: 369px; max-width: 100%;">
+            <img loading="lazy" decoding="async" src="public/images/icons/whitelabel.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;">
+            <h3 class="heading mt-2" style="font-size: 20px; line-height: 24px; letter-spacing: 0.5px;">
+              <span class="font-bold">Com a sua marca</span><br>
+              <span class="font-bold" style="font-size: 12px;">(Whitelabel)</span>
+            </h3>
+            <ul class="mt-4 space-y-4">
+              <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                <span>O cliente percebe a solução como<br>parte do seu negócio</span>
+              </li>
+              <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                <span>Mais valor agregado à sua operação</span>
+              </li>
+              <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                <span>Experiência personalizada</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Modelo 2: Marca Parcele Aqui (366px) -->
+          <div class="flex-shrink-0" style="width: 366px; max-width: 100%;">
+            <img loading="lazy" decoding="async" src="public/images/icons/whitelabel.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;">
+            <h3 class="heading mt-2 font-bold" style="font-size: 20px; line-height: 24px; letter-spacing: 0.5px;">Com a marca<br>Parcele Aqui</h3>
+            <ul class="mt-4 space-y-4">
+              <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                <span>Solução pronta e validada no mercado</span>
+              </li>
+              <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                <span>Implementação ainda mais rápida</span>
+              </li>
+              <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                <span>Comunicação clara e objetiva para o cliente</span>
+              </li>
+            </ul>
           </div>
         </div>
-
-        <!-- Card 2: Plataforma Parcele Aqui -->
-        <div class="flex-shrink-0" style="width: 280px; display: flex; flex-direction: column; gap: 8px;">
-          <img loading="lazy" decoding="async" src="public/images/icons/whitelabel.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;" />
-          <h3 style="font-family: 'Kufam', sans-serif; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01;">
-            <span style="font-weight: 500;">Plataforma<br/></span><span style="font-weight: 700;">Parcele Aqui</span>
-          </h3>
-          <div style="padding-top: 16px; display: flex; flex-direction: column; gap: 16px;">
-            <div style="display: flex; align-items: flex-start; gap: 8px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6" stroke="#e6ac00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span style="font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 24px; color: #2e2e2e;">Marca consolidada e reconhecida</span>
-            </div>
-            <div style="display: flex; align-items: flex-start; gap: 8px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6" stroke="#e6ac00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span style="font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 24px; color: #2e2e2e;">Tecnologia em constante evolução</span>
-            </div>
-            <div style="display: flex; align-items: flex-start; gap: 8px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6" stroke="#e6ac00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span style="font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 24px; color: #2e2e2e;">Pronto para usar, sem customização</span>
-            </div>
-          </div>
-        </div>
+        <!-- Slogan -->
+        <p class="content mt-6 text-brand-text-secondary" style="font-size: 16px; line-height: 24px;" data-orig-html="Dois modelos, o mesmo objetivo: &lt;strong class=&quot;font-bold&quot;&gt;fechar mais negócios sem risco.&lt;/strong&gt;">Dois modelos, o mesmo objetivo: <strong class="font-bold">fechar mais negócios sem risco.</strong></p>
+        <!-- CTA -->
+        <a href="https://wa.me/5531973322921?text=Ol%C3%A1%21%20Vim%20da%20Landing%20Page%20Parcele%20Aqui%20Neg%C3%B3cios%20e%20quero%20entender%20qual%20modelo%20%28whitelabel%20ou%20marca%20Parcele%20Aqui%29%20faz%20mais%20sentido%20para%20mim." target="_blank" rel="noopener" class="mt-6 inline-flex items-center justify-center bg-brand-yellow text-brand-text-primary btn-yellow-hover rounded-sm transition" style="padding: 16px 24px; font-size: 18px; line-height: 24px; letter-spacing: 0.75px; font-weight: 700; box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 0 4px rgba(0,0,0,0.08), 0 0 16px rgba(0,0,0,0.08);">Entender qual modelo escolher</a>
       </div>
 
-      <!-- Slogan -->
-      <p class="content mt-6 text-brand-text-secondary" style="font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 24px;"><strong style="font-weight: 700;">Você escolhe.</strong> A segurança e a performance são as mesmas.</p>
+      <!-- COLUNA 2: iMac DESKTOP — atrelado ao conteúdo (no fluxo, não absolute) -->
+      <img loading="lazy" decoding="async" src="public/images/sections/imac-completo.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="hidden lg:block flex-shrink-0 img-fade" style="width: 100%; max-width: 560px; height: auto; align-self: flex-start; border-bottom-left-radius: 60px; filter: drop-shadow(0 18px 28px rgba(55, 27, 1, 0.15)) drop-shadow(0 6px 10px rgba(55, 27, 1, 0.08));" />
 
-      <!-- CTA -->
-      <a href="https://wa.me/5531973322921?text=Ol%C3%A1%21%20Vim%20da%20Landing%20Page%20Parcele%20Aqui%20Neg%C3%B3cios%20e%20quero%20entender%20qual%20modelo%20%28whitelabel%20ou%20marca%20Parcele%20Aqui%29%20faz%20mais%20sentido%20para%20mim." target="_blank" rel="noopener" class="mt-6 inline-flex items-center justify-center bg-brand-yellow btn-yellow-hover rounded-sm transition" style="padding: 16px 24px; font-family: 'DM Sans', sans-serif; font-size: 18px; line-height: 24px; letter-spacing: 0.75px; font-weight: 700; color: #371b01; box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 0 4px rgba(0,0,0,0.08), 0 0 16px rgba(0,0,0,0.08);">Quero escolher como operar</a>
     </div>
   </div>
 </section>
 
 <!-- ============ DOBRA 16 - QUEM ESTÁ POR TRÁS ============ -->
-<div class="relative" style="max-width: 1153px; margin: 0 auto; position: relative;">
-    <!-- Elemento decorativo verde (forma SVG) - arredondado e ajustado -->
-    <img style="width: 700px; height: 485px; top: 5px; right: -70px; left: auto; z-index: 0; border-radius: 60px; object-fit: cover;" class="quem-shape hidden lg:block absolute pointer-events-none" aria-hidden="true" alt="" src="public/images/sections/shape-verde.svg" decoding="async" loading="lazy">
+<section id="quem-somos" class="bg-white relative overflow-hidden" style="padding: 90px 107px 24px 107px;">
+  <!-- Shape verde decorativo (SVG oficial Figma 672×572). Ancorado à borda DIREITA da tela
+       (sangra até o canto da página); o que passar é cortado pelo overflow-hidden da section.
+       Fora do container centralizado pra poder colar na borda. Oculto no mobile (lá é carrossel). -->
+  
+  <div class="relative" style="max-width: 1153px; margin: 0 auto;">
+    <!-- Container principal: texto à esquerda + cards à direita (vertically centered, gap 124px) --><div style="background: #009F44; border-radius: 240px 32px 32px 32px; width: 680px; height: 607px; top: 10px; right: -104px; z-index: 0;" class="quem-shape hidden lg:block absolute pointer-events-none" aria-hidden="true"></div>
     
-    <!-- Container principal: texto à esquerda + cards à direita (vertically centered, gap 124px) -->
-    <div style="gap: 124px; padding: 10px 0; z-index: 1; position: relative;" class="relative flex items-center">
+    <div class="relative flex items-center" style="gap: 124px; padding: 96px 0; z-index: 1;">
       <!-- COLUNA ESQUERDA: Logo + headline + body -->
       <div class="flex flex-col flex-shrink-0" style="gap: 10px;">
         <!-- Logo Potencial Tecnologia + Headline (gap 16px) -->
@@ -1626,9 +1623,9 @@
           </div>
           <!-- Headline (Kufam 40/48, tracking 0.2px, cor #111 preto, w-369) -->
           <h2 style="font-family: 'Kufam', sans-serif; font-size: 40px; line-height: 48px; letter-spacing: 0.2px; color: #371b01; width: 369px;" data-orig-html="
-            &lt;span style=&quot;font-weight: 400;&quot;&gt;Quem está&lt;br&gt;por trás do &lt;/span&gt;&lt;span style=&quot;font-weight: 700;&quot;&gt;Parcele Aqui&lt;/span&gt;
+            &lt;span style=&quot;font-weight: 400;&quot;&gt;Quem está&lt;br&gt;por trás do&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;font-weight: 700;&quot;&gt;Parcele Aqui&lt;/span&gt;
           ">
-            <span style="font-weight: 400;">Quem está<br>por trás do </span><span style="font-weight: 700;">Parcele Aqui</span>
+            <span style="font-weight: 400;">Quem está<br>por trás do<br></span><span style="font-weight: 700;">Parcele Aqui</span>
           </h2>
         </div>
         <!-- Body (pt-16, gap-16 entre parágrafos, w-367, cor #2e2e2e) -->
@@ -1646,7 +1643,7 @@
         </div>
       </div>
       <!-- COLUNA DIREITA: Grid 2 linhas × 3 cards — DESKTOP -->
-      <div style="gap: 18px;" class="quem-desktop flex flex-col flex-shrink-0">
+      <div class="quem-desktop flex flex-col flex-shrink-0" style="gap: 18px;">
         <!-- LINHA 1: 25 anos / 100% digital / 24/07 -->
         <div class="flex" style="gap: 24px;">
           <!-- Card 01: 25 anos de mercado (calendar Material-style) -->
@@ -1765,6 +1762,7 @@
       </div>
     </div>
   </div>
+</section>
 
 <!-- ============ DOBRA 17 - SEGURANÇA ============ -->
 <section id="seguranca" class="bg-white relative" style="padding: 24px 107px 48px 107px;">
@@ -2188,310 +2186,6 @@
   }
   /* desktop: copyright em uma linha só */
   #site-footer .cnpj-break { display: none; }
-
-  /* =====================================================
-   CORREÇÃO DEFINITIVA - MOBILE E TABLET
-   MODELOS DE OPERAÇÃO
-   ===================================================== */
-
-@media screen and (max-width: 1023px) {
-
-  /* margem padrão mobile */
-  section,
-  footer,
-  .container-fig {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-
-  /* seção modelos */
-  #modelos {
-    overflow: hidden !important;
-    padding-top: 32px !important;
-    padding-bottom: 40px !important;
-  }
-
-  /* título */
-  #modelos h2 {
-    font-size: 32px !important;
-    line-height: 38px !important;
-    text-align: left !important;
-  }
-
-  #modelos p {
-    max-width: 100% !important;
-  }
-
-  /* imagem */
-  #modelos img {
-    max-width: 100% !important;
-    height: auto !important;
-    display: block !important;
-  }
-
-  /* qualquer container flex vira coluna */
-  #modelos [style*="gap: 124px"],
-  #modelos [style*="gap: 120px"],
-  #modelos [style*="gap: 96px"],
-  #modelos [style*="gap: 72px"],
-  #modelos [style*="gap: 64px"] {
-    flex-direction: column !important;
-    gap: 24px !important;
-  }
-
-  /* carrossel */
-  #modelos .modelos-track,
-  #modelos .overflow-x-auto {
-    display: flex !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory;
-    gap: 16px !important;
-
-    margin-left: -20px !important;
-    margin-right: -20px !important;
-
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-
-    -webkit-overflow-scrolling: touch;
-  }
-
-  #modelos .modelos-track::-webkit-scrollbar,
-  #modelos .overflow-x-auto::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* cards */
-  #modelos article,
-  #modelos .modelos-card,
-  #modelos [class*="card"] {
-
-    width: calc(100vw - 40px) !important;
-    min-width: calc(100vw - 40px) !important;
-    max-width: calc(100vw - 40px) !important;
-
-    box-sizing: border-box !important;
-
-    scroll-snap-align: start;
-
-    margin: 0 !important;
-  }
-
-  /* conteúdo dos cards */
-  #modelos article h3,
-  #modelos article h4,
-  #modelos article p {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* botão */
-  #modelos a.btn-primary,
-  #modelos a.btn-yellow-hover,
-  #modelos a[href="#cta"] {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-}
-
-/* MOBILE PEQUENO */
-
-@media screen and (max-width: 480px) {
-
-  #modelos h2 {
-    font-size: 28px !important;
-    line-height: 34px !important;
-  }
-
-  #modelos article,
-  #modelos .modelos-card,
-  #modelos [class*="card"] {
-
-    width: calc(100vw - 32px) !important;
-    min-width: calc(100vw - 32px) !important;
-    max-width: calc(100vw - 32px) !important;
-  }
-
-}
-  /* ==========================================
-   RESPONSIVO GLOBAL - MOBILE E TABLET
-   ========================================== */
-
-@media screen and (max-width: 1023px) {
-
-  html,
-  body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-  }
-
-  section,
-  footer {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-
-  .container-fig {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-
-  /* HERO */
-
-  .hero-wrap,
-  #hero-slider {
-    flex-direction: column !important;
-    gap: 20px !important;
-  }
-
-  .hero-col-text,
-  .hero-col-img,
-  .hero-img-box {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: auto !important;
-    height: auto !important;
-  }
-
-  .hero-col-text {
-    padding-top: 0 !important;
-    min-height: auto !important;
-  }
-
-  .hero-slides-area {
-    min-height: auto !important;
-  }
-
-  .hero-img-box img {
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-  }
-
-  /* TITULOS */
-
-  h1 {
-    font-size: 34px !important;
-    line-height: 40px !important;
-    text-align: center !important;
-  }
-
-  h2 {
-    font-size: 30px !important;
-    line-height: 36px !important;
-  }
-
-  h3 {
-    font-size: 24px !important;
-    line-height: 30px !important;
-  }
-
-  p {
-    word-break: normal !important;
-  }
-
-  /* TEXTO CENTRALIZADO */
-
-  .hero-kicker,
-  .hero-col-text p,
-  .hero-col-text h1 {
-    text-align: center !important;
-  }
-
-  /* BOTÕES */
-
-  .hero-buttons,
-  .hero-btn-primary,
-  .hero-btn-secondary,
-  .btn-primary,
-  .btn-secondary {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* CARDS */
-
-  .quem-card,
-  article,
-  [class*="card"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: auto !important;
-  }
-
-  /* GRIDS */
-
-  [style*="grid-template-columns"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* FLEX */
-
-  [style*="gap: 124px"],
-  [style*="gap: 120px"],
-  [style*="gap: 96px"],
-  [style*="gap: 72px"],
-  [style*="gap: 64px"] {
-    flex-direction: column !important;
-    gap: 24px !important;
-  }
-
-  /* IMAGENS */
-
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  /* ESCONDE SETAS DO HERO */
-
-  .hero-arrows {
-    display: none !important;
-  }
-
-  /* QUEM SOMOS */
-
-  #quem-somos {
-    padding-top: 20px !important;
-  }
-
-  #quem-somos .quem-mobile {
-    margin-top: -30px !important;
-  }
-
-  #quem-somos h2,
-  #quem-somos p {
-    text-align: center !important;
-  }
-}
-
-/* MOBILE PEQUENO */
-
-@media screen and (max-width: 480px) {
-
-  h1 {
-    font-size: 30px !important;
-    line-height: 36px !important;
-  }
-
-  h2 {
-    font-size: 26px !important;
-    line-height: 32px !important;
-  }
-
-  section,
-  footer,
-  .container-fig {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-
-}
 </style>
 
 <!-- Microsoft Clarity -->
