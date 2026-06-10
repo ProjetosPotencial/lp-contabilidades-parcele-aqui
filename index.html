@@ -138,7 +138,7 @@
     position: absolute;
     top: -250px;
     right: -215px;
-    width: 440px;
+    width: clamp(440px, 42vw, 720px);
     height: auto;
     z-index: 5;
     pointer-events: none;
@@ -527,11 +527,6 @@
 
     /* FAQ mobile — accordions na mesma altura (baseando pelo maior) */
     #faq .faq-mobile details > summary { min-height: 72px !important; align-items: center !important; }
-    /* FAQ mobile — wrapper bege que envolve a foto recebe gradient branco→bege.
-       Transição na altura do radius 240px (canto top-right da foto), pra o "recorte" do canto mostrar branco em vez de bege. */
-    .faq-mobile > div:first-child[style*="background: #f8f6f0"] {
-      background: linear-gradient(to bottom, #ffffff 0, #ffffff 200px, #f8f6f0 260px, #f8f6f0 100%) !important;
-    }
 
     /* Quebras de texto equilibradas: distribui linhas automaticamente nos títulos.
        Suportado por Chrome 114+, Safari 17.5+, Firefox 121+. Em browsers antigos,
