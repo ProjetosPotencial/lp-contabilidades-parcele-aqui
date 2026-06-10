@@ -503,6 +503,17 @@
     }
     #modelos .modelos-layout { gap: 24px !important; }
     #modelos .modelos-texto { padding-left: 0 !important; padding-right: 0 !important; max-width: 100% !important; box-sizing: border-box !important; }
+    /* Zera padding-left de todos os filhos imediatos do .modelos-texto pra alinhamento perfeito com a margem da LP */
+    #modelos .modelos-texto > *,
+    #modelos .modelos-texto ul,
+    #modelos .modelos-texto > div > * {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    /* CardS (whitelabel + marca Parcele Aqui) com width fluida no mobile */
+    #modelos .modelos-texto > div.mt-8 > div.flex-shrink-0 { width: 100% !important; max-width: 100% !important; }
 
     /* Dobra Quem somos — espaçamentos topo, base, e antes do carrossel */
     #quem-somos { padding-top: 40px !important; padding-bottom: 40px !important; }
@@ -516,6 +527,11 @@
 
     /* FAQ mobile — accordions na mesma altura (baseando pelo maior) */
     #faq .faq-mobile details > summary { min-height: 72px !important; align-items: center !important; }
+    /* FAQ mobile — wrapper bege que envolve a foto recebe gradient branco→bege.
+       Transição na altura do radius 240px (canto top-right da foto), pra o "recorte" do canto mostrar branco em vez de bege. */
+    .faq-mobile > div:first-child[style*="background: #f8f6f0"] {
+      background: linear-gradient(to bottom, #ffffff 0, #ffffff 200px, #f8f6f0 260px, #f8f6f0 100%) !important;
+    }
 
     /* Quebras de texto equilibradas: distribui linhas automaticamente nos títulos.
        Suportado por Chrome 114+, Safari 17.5+, Firefox 121+. Em browsers antigos,
