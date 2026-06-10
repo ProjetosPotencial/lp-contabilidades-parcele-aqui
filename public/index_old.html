@@ -131,20 +131,6 @@
   .kicker { font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 24px; font-weight: 500; color: #371b01; }
   .content { font-size: 16px; line-height: 24px; font-weight: 400; }
   .container-fig { max-width: 1152px; margin-left: auto; margin-right: auto; padding-left: 24px; padding-right: 24px; }
-  /* iMac DESKTOP (≥1024px): absolute no canto superior direito da dobra Modelos,
-     sangrando da borda direita da viewport, width responsivo entre 1024 e 1920+. */
-  #modelos { position: relative; }
-  #modelos .modelos-imac-desktop {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: clamp(440px, 42vw, 720px);
-    height: auto;
-    z-index: 5;
-    pointer-events: none;
-    border-bottom-left-radius: 60px;
-    filter: drop-shadow(0 18px 28px rgba(55, 27, 1, 0.15)) drop-shadow(0 6px 10px rgba(55, 27, 1, 0.08));
-  }
   @media (min-width: 1280px) { .container-fig { padding-left: 0; padding-right: 0; } }
   .btn-primary { display: inline-flex; align-items: center; justify-content: center; background: #ffb800; color: #371b01; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; padding: 16px 24px; border-radius: 8px; transition: 0.2s; cursor: pointer; }
   .btn-primary:hover { background: #371b01; color: #ffb800; }
@@ -311,11 +297,11 @@
     .modelos-img-mobile { display: block !important; }
     /* Dobra modelos no mobile: zera padding-top (imagem encosta no topo). O container-fig também perde o padding-top. */
     section#modelos:not(#solucao) { padding-top: 0 !important; }
-    section#modelos .container-fig { padding-top: 0 !important; padding-left: 36px !important; padding-right: 36px !important; }
+    section#modelos .container-fig { padding-top: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
     /* Container de texto da dobra modelos: fluído com 36px de margem (padrão da LP). */
     .modelos-texto { width: 100% !important; max-width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; }
     /* Imagem full bleed: compensa os 36px da section (container-fig zerado). Margens simétricas = centralizada. */
-    .modelos-img-mobile { margin-left: auto !important; margin-right: auto !important; width: 100% !important; max-width: calc(100% - 0px) !important; display: block !important; object-fit: contain; object-position: center; }
+    .modelos-img-mobile { margin-left: -36px !important; margin-right: -36px !important; width: calc(100% + 72px) !important; display: block !important; object-fit: contain; object-position: center; }
     /* CTA da dobra modelos: largura total do container (com os 36px de margem da section), em uma linha. */
     section#modelos a[href="#cta"] { font-size: 16px !important; padding-left: 16px !important; padding-right: 16px !important; display: flex !important; width: 100% !important; max-width: 100% !important; }
     /* Selos de certificação (dobra Segurança) no mobile: empilhados verticalmente, centralizados, gap 56px entre todos (conforme Figma node 4010-14302). */
@@ -485,8 +471,7 @@
     /* Dobra Empresas — margin top/bottom mobile (cai pra 56px global, reforça) */
     #empresas { padding-top: 40px !important; padding-bottom: 40px !important; }
 
-    /* Dobra Modelos — mobile: iMac centralizado com 36px margem cada lado (vem do container-fig) + layout empilhado */
-    #modelos .modelos-imac-desktop { display: none !important; }
+    /* Dobra Modelos — centralizar imagem do mockup mobile */
     #modelos .modelos-img-mobile {
       margin-left: auto !important;
       margin-right: auto !important;
@@ -496,8 +481,6 @@
       object-fit: contain;
       object-position: center;
     }
-    #modelos .modelos-layout { gap: 24px !important; }
-    #modelos .modelos-texto { padding-left: 0 !important; max-width: 100% !important; }
 
     /* Dobra Quem somos — espaçamentos topo, base, e antes do carrossel */
     #quem-somos { padding-top: 40px !important; padding-bottom: 40px !important; }
@@ -1545,227 +1528,251 @@
 
 <!-- ============ DOBRA 4 - MODELOS ============ -->
 <section id="modelos" class="bg-brand-beige-light relative" style="padding-top: 96px; padding-bottom: 72px; overflow-x: clip;">
+  <!-- iMac COMPLETO (imagem única) ancorada à direita da dobra Modelos.
+       top:-100 faz o topinho transbordar pra cima da dobra Empresas; o resto fica sobre o bege. -->
+  <div class="hidden lg:block absolute pointer-events-none" style="right: 0; top: -180px; width: 820px; z-index: 5;">
+    <img loading="lazy" decoding="async" src="public/images/sections/imac-completo.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="block w-full h-auto" />
+  </div>
+  <!-- iMac removido daqui: agora é uma imagem única ancorada na dobra Empresas acima,
+       que transborda pra cá. Mantido só o iMac mobile (full bleed) abaixo. -->
   <div class="container-fig relative">
 
-    <!-- MOBILE (<lg): iMac no topo, centralizado com margem 36px de cada lado -->
-    <img loading="lazy" decoding="async" src="public/images/sections/secao-como-operar_2.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="modelos-img-mobile lg:hidden" style="width: 100%; max-width: 100%; height: auto; margin: 0 auto 32px auto; object-fit: contain;" />
+    <!-- Imagem do iMac no início da dobra — SOMENTE MOBILE. Full bleed. Fundo branco até 64px antes da base; nesses 64px finais o bege da dobra aparece (altura do mouse). -->
+    <img loading="lazy" decoding="async" src="public/images/sections/secao-como-operar_2.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="modelos-img-mobile" style="display: none; width: calc(100% + 120px); max-width: none; margin-left: -60px; margin-right: -60px; height: auto; margin-bottom: 32px;" />
 
-    <!-- DESKTOP: iMac no canto superior direito, sangrando borda direita (absolute) -->
-    <img loading="lazy" decoding="async" src="public/images/sections/imac-completo.webp" alt="Mockup do produto Parcele Aqui em tela de iMac" class="modelos-imac-desktop hidden lg:block img-fade" />
-
+    <!-- COLUNA ESQUERDA: Texto + cards (padding-left maior pra criar espaço) -->
     <div class="modelos-texto relative z-10 lg:pl-24" style="max-width: 800px;">
-        <!-- Kicker -->
-        <p class="text-base font-medium text-brand-text-secondary leading-6" data-orig-html="Flexibilidade para o seu modelo de negócio">Flexibilidade para o seu modelo de negócio</p>
-        <!-- Headline (40px / 48px, max-width 563px) -->
-        <h2 class="heading mt-1" style="font-size: 40px; line-height: 48px; letter-spacing: 0.2px; max-width: 563px;" data-orig-html="Você escolhe como&lt;br&gt;&lt;strong class=&quot;font-bold&quot;&gt;operar com o Parcele Aqui&lt;/strong&gt;">Você escolhe como<br><strong class="font-bold">operar com o Parcele Aqui</strong></h2>
-        <!-- Subtitle (16/24, 563px) -->
-        <p class="content mt-4 text-brand-text-secondary" style="font-size: 16px; line-height: 24px; max-width: 563px;" data-orig-html="O mesmo produto, &lt;strong class=&quot;font-bold&quot;&gt;a mesma segurança e eficiência&lt;/strong&gt;,&lt;br&gt;no formato que melhor fortalece o posicionamento&lt;br&gt;do seu escritório.">O mesmo produto, <strong class="font-bold">a mesma segurança e eficiência</strong>,<br>no formato que melhor fortalece o posicionamento<br>do seu escritório.</p>
-        <!-- 2 modelos lado a lado (369px cada, gap 24px) -->
-        <div class="mt-8 flex flex-col sm:flex-row gap-6">
-          <!-- Modelo 1: Whitelabel (369px) -->
-          <div class="flex-shrink-0" style="width: 369px; max-width: 100%;">
-            <img loading="lazy" decoding="async" src="public/images/icons/whitelabel.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;">
-            <h3 class="heading mt-2" style="font-size: 20px; line-height: 24px; letter-spacing: 0.5px;">
-              <span class="font-bold">Com a sua marca</span><br>
-              <span class="font-bold" style="font-size: 12px;">(Whitelabel)</span>
-            </h3>
-            <ul class="mt-4 space-y-4">
-              <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-                <span>O cliente percebe a solução como<br>parte do seu negócio</span>
-              </li>
-              <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-                <span>Mais valor agregado à sua operação</span>
-              </li>
-              <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-                <span>Experiência personalizada</span>
-              </li>
-            </ul>
-          </div>
-          <!-- Modelo 2: Marca Parcele Aqui (366px) -->
-          <div class="flex-shrink-0" style="width: 366px; max-width: 100%;">
-            <img loading="lazy" decoding="async" src="public/images/icons/whitelabel.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;">
-            <h3 class="heading mt-2 font-bold" style="font-size: 20px; line-height: 24px; letter-spacing: 0.5px;">Com a marca<br>Parcele Aqui</h3>
-            <ul class="mt-4 space-y-4">
-              <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-                <span>Solução pronta e validada no mercado</span>
-              </li>
-              <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-                <span>Implementação ainda mais rápida</span>
-              </li>
-              <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-                <span>Comunicação clara e objetiva para o cliente</span>
-              </li>
-            </ul>
-          </div>
+      <!-- Kicker -->
+      <p class="text-base font-medium text-brand-text-secondary leading-6">Escolha estratégica</p>
+
+      <!-- Headline (40px / 48px, max-width 563px) -->
+      <h2 class="heading mt-1" style="font-size: 40px; line-height: 48px; letter-spacing: 0.2px; max-width: 563px;">Você escolhe como operar:<br/><strong class="font-bold">com a sua marca ou com a marca Parcele Aqui.</strong></h2>
+
+      <!-- Subtitle (16/24, 563px) -->
+      <p class="content mt-4 text-brand-text-secondary" style="font-size: 16px; line-height: 24px; max-width: 563px;">O mesmo produto, <strong class="font-bold">a mesma segurança e eficiência</strong>,<br/>no formato que melhor fortalece o posicionamento<br/>do seu escritório.</p>
+
+      <!-- 2 modelos lado a lado (369px cada, gap 24px) -->
+      <div class="mt-8 flex flex-col sm:flex-row gap-6">
+        <!-- Modelo 1: Whitelabel (369px) -->
+        <div class="flex-shrink-0" style="width: 369px;">
+          <!-- Ícone tag (oficial Figma) -->
+          <img loading="lazy" decoding="async" src="public/images/icons/whitelabel.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;" />
+          <!-- Title: "Com a sua marca" 20px bold + "(Whitelabel)" 12px na linha de baixo -->
+          <h3 class="heading mt-2" style="font-size: 20px; line-height: 24px; letter-spacing: 0.5px;">
+            <span class="font-bold">Com a sua marca</span><br/>
+            <span class="font-bold" style="font-size: 12px;">(Whitelabel)</span>
+          </h3>
+          <!-- Bullets -->
+          <ul class="mt-4 space-y-4">
+            <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <span>Plataforma com sua identidade</span>
+            </li>
+            <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <span>Mais valor percebido</span>
+            </li>
+            <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <span>Sensação de serviço exclusivo</span>
+            </li>
+          </ul>
         </div>
-        <!-- Slogan -->
-        <p class="content mt-6 text-brand-text-secondary" style="font-size: 16px; line-height: 24px;" data-orig-html="Dois modelos, o mesmo objetivo: &lt;strong class=&quot;font-bold&quot;&gt;fechar mais negócios sem risco.&lt;/strong&gt;">Dois modelos, o mesmo objetivo: <strong class="font-bold">fechar mais negócios sem risco.</strong></p>
-        <!-- CTA -->
-        <a href="https://wa.me/5531973322921?text=Ol%C3%A1%21%20Vim%20da%20Landing%20Page%20Parcele%20Aqui%20Neg%C3%B3cios%20e%20quero%20entender%20qual%20modelo%20%28whitelabel%20ou%20marca%20Parcele%20Aqui%29%20faz%20mais%20sentido%20para%20mim." target="_blank" rel="noopener" class="mt-6 inline-flex items-center justify-center bg-brand-yellow text-brand-text-primary btn-yellow-hover rounded-sm transition" style="padding: 16px 24px; font-size: 18px; line-height: 24px; letter-spacing: 0.75px; font-weight: 700; box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 0 4px rgba(0,0,0,0.08), 0 0 16px rgba(0,0,0,0.08);">Entender qual modelo escolher</a>
+
+        <!-- Modelo 2: Marca Parcele Aqui (366px) -->
+        <div class="flex-shrink-0" style="width: 366px;">
+          <!-- Ícone (idêntico ao Modelo 1, conforme Figma) -->
+          <img loading="lazy" decoding="async" src="public/images/icons/whitelabel.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;" />
+          <!-- Title: "Com a marca Parcele Aqui" (2 linhas) -->
+          <h3 class="heading mt-2 font-bold" style="font-size: 20px; line-height: 24px; letter-spacing: 0.5px;">Plataforma<br/>Parcele Aqui</h3>
+          <!-- Bullets -->
+          <ul class="mt-4 space-y-4">
+            <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <span>Marca consolidada e reconhecida</span>
+            </li>
+            <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <span>Pronta para uso imediato</span>
+            </li>
+            <li class="flex gap-2 items-start text-brand-text-secondary" style="font-size: 16px; line-height: 24px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <span>Evolução contínua da tecnologia</span>
+            </li>
+          </ul>
+        </div>
       </div>
+
+      <!-- Slogan -->
+      <p class="content mt-6 text-brand-text-secondary" style="font-size: 16px; line-height: 24px;"><strong class="font-bold">Você escolhe.</strong> A segurança e a performance são as mesmas.</p>
+
+      <!-- CTA (font 18px, padding 24/16, shadow) -->
+      <a href="https://wa.me/5531973322921?text=Ol%C3%A1%21%20Vim%20da%20Landing%20Page%20Parcele%20Aqui%20Neg%C3%B3cios%20e%20quero%20entender%20qual%20modelo%20%28whitelabel%20ou%20marca%20Parcele%20Aqui%29%20faz%20mais%20sentido%20para%20mim." target="_blank" rel="noopener" class="mt-6 inline-flex items-center justify-center bg-brand-yellow text-brand-text-primary btn-yellow-hover rounded-sm transition" style="padding: 16px 24px; font-size: 18px; line-height: 24px; letter-spacing: 0.75px; font-weight: 700; box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 0 4px rgba(0,0,0,0.08), 0 0 16px rgba(0,0,0,0.08);">Entender qual modelo escolher</a>
+    </div>
   </div>
 </section>
 
 <!-- ============ DOBRA 16 - QUEM ESTÁ POR TRÁS ============ -->
-<section id="quem-somos" class="bg-white relative overflow-hidden" style="padding: 90px 107px 24px 107px;">
+<section id="quem-somos" class="bg-white relative overflow-hidden" style="padding: 0 107px 24px 107px;">
   <!-- Shape verde decorativo (SVG oficial Figma 672×572). Ancorado à borda DIREITA da tela
        (sangra até o canto da página); o que passar é cortado pelo overflow-hidden da section.
        Fora do container centralizado pra poder colar na borda. Oculto no mobile (lá é carrossel). -->
-  
+  <div aria-hidden="true" class="quem-shape hidden lg:block absolute pointer-events-none" style="background: #009F44; border-radius: 160px 0 0 32px; width: 960px; height: 572px; top: 55px; right: 0; z-index: 0;"></div>
   <div class="relative" style="max-width: 1153px; margin: 0 auto;">
-    <!-- Container principal: texto à esquerda + cards à direita (vertically centered, gap 124px) --><div style="background: #009F44; border-radius: 240px 32px 32px 32px; width: 680px; height: 607px; top: 10px; right: -104px; z-index: 0;" class="quem-shape hidden lg:block absolute pointer-events-none" aria-hidden="true"></div>
-    
+
+    <!-- Container principal: texto à esquerda + cards à direita (vertically centered, gap 124px) -->
     <div class="relative flex items-center" style="gap: 124px; padding: 96px 0; z-index: 1;">
+
       <!-- COLUNA ESQUERDA: Logo + headline + body -->
       <div class="flex flex-col flex-shrink-0" style="gap: 10px;">
         <!-- Logo Potencial Tecnologia + Headline (gap 16px) -->
         <div class="flex flex-col" style="gap: 16px;">
           <!-- Logo container (px-6 py-3, image 264×74) -->
           <div class="flex" style="padding: 3px 6px;">
-            <img loading="lazy" decoding="async" src="public/images/logos/logo-potencial-tecnologia.svg" alt="Potencial Tecnologia" style="width: 264px; height: 74px; object-fit: contain;">
+            <img loading="lazy" decoding="async" src="public/images/logos/logo-potencial-tecnologia.svg" alt="Potencial Tecnologia" style="width: 264px; height: 74px; object-fit: contain;" />
           </div>
+
           <!-- Headline (Kufam 40/48, tracking 0.2px, cor #111 preto, w-369) -->
-          <h2 style="font-family: 'Kufam', sans-serif; font-size: 40px; line-height: 48px; letter-spacing: 0.2px; color: #371b01; width: 369px;" data-orig-html="
-            &lt;span style=&quot;font-weight: 400;&quot;&gt;Quem está&lt;br&gt;por trás do&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;font-weight: 700;&quot;&gt;Parcele Aqui&lt;/span&gt;
-          ">
-            <span style="font-weight: 400;">Quem está<br>por trás do<br></span><span style="font-weight: 700;">Parcele Aqui</span>
+          <h2 style="font-family: 'Kufam', sans-serif; font-size: 40px; line-height: 48px; letter-spacing: 0.2px; color: #371b01; width: 369px;">
+            <span style="font-weight: 400;">Quem está<br/>por trás do<br/></span><span style="font-weight: 700;">Parcele Aqui</span>
           </h2>
         </div>
+
         <!-- Body (pt-16, gap-16 entre parágrafos, w-367, cor #2e2e2e) -->
         <div class="flex flex-col" style="gap: 16px; padding-top: 16px; width: 367px;">
-          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;" data-orig-html="
-            O Parcele Aqui é desenvolvido pela &lt;span style=&quot;font-weight: 700;&quot;&gt;Potencial Tecnologia&lt;/span&gt;, empresa brasileira com mais&lt;br&gt;de &lt;span style=&quot;font-weight: 700;&quot;&gt;25 anos de experiência&lt;/span&gt; em meios&lt;br&gt;de pagamento, automação e gestão financeira.
-          ">
-            O Parcele Aqui é desenvolvido pela <span style="font-weight: 700;">Potencial Tecnologia</span>, empresa brasileira com mais<br>de <span style="font-weight: 700;">25 anos de experiência</span> em meios<br>de pagamento, automação e gestão financeira.
+          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">
+            O Parcele Aqui é desenvolvido pela <span style="font-weight: 700;">Potencial Tecnologia</span>, empresa brasileira com mais<br/>de <span style="font-weight: 700;">25 anos de experiência</span> em meios<br/>de pagamento, automação e gestão financeira.
           </p>
-          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;" data-orig-html="
-            &lt;span style=&quot;font-weight: 700;&quot;&gt;Infraestrutura robusta, certificações&lt;br&gt;de segurança&lt;/span&gt; e operações em larga escala&lt;br&gt;em todo o Brasil.
-          ">
-            <span style="font-weight: 700;">Infraestrutura robusta, certificações<br>de segurança</span> e operações em larga escala<br>em todo o Brasil.
+          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">
+            <span style="font-weight: 700;">Infraestrutura robusta, certificações<br/>de segurança</span> e operações em larga escala<br/>em todo o Brasil.
           </p>
         </div>
       </div>
+
       <!-- COLUNA DIREITA: Grid 2 linhas × 3 cards — DESKTOP -->
       <div class="quem-desktop flex flex-col flex-shrink-0" style="gap: 18px;">
+
         <!-- LINHA 1: 25 anos / 100% digital / 24/07 -->
         <div class="flex" style="gap: 24px;">
           <!-- Card 01: 25 anos de mercado (calendar Material-style) -->
           <article style="background: #f8f6f0; border-radius: 24px; width: 220px; height: 227px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 32px 16px;">
             <div class="flex flex-col w-full" style="gap: 8px;">
               <!-- Ícone 48×48 -->
-              <img loading="lazy" decoding="async" src="public/images/icons/quem-01.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;">
-              <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01;">25 anos<br>de mercado</h3>
-              <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;" data-orig-html="Desenvolvendo&lt;br&gt;soluções digitais">Desenvolvendo<br>soluções digitais</p>
+              <img loading="lazy" decoding="async" src="public/images/icons/quem-01.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;" />
+              <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01;">25 anos<br/>de mercado</h3>
+              <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">Desenvolvendo<br/>soluções digitais</p>
             </div>
           </article>
+
           <!-- Card 02: 100% digital (devices) -->
           <article style="background: #f8f6f0; border-radius: 24px; width: 220px; height: 227px; display: flex; flex-direction: column; align-items: flex-start; padding: 32px 16px;">
             <div class="flex flex-col w-full" style="gap: 8px;">
-              <img loading="lazy" decoding="async" src="public/images/icons/quem-02.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;">
-              <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01;">100%<br>digital</h3>
-              <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;" data-orig-html="Plataforma totalmente&lt;br&gt;online e automatizada">Plataforma totalmente<br>online e automatizada</p>
+              <img loading="lazy" decoding="async" src="public/images/icons/quem-02.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;" />
+              <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01;">100%<br/>digital</h3>
+              <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">Plataforma totalmente<br/>online e automatizada</p>
             </div>
           </article>
+
           <!-- Card 03: 24/07 disponibilidade (timer) -->
           <article style="background: #f8f6f0; border-radius: 24px; width: 220px; height: 227px; display: flex; flex-direction: column; align-items: flex-start; padding: 32px 16px;">
             <div class="flex flex-col w-full" style="gap: 8px;">
-              <img loading="lazy" decoding="async" src="public/images/icons/quem-03.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;">
-              <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01;">24/07<br>disponibilidade</h3>
-              <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;" data-orig-html="Sistema operando&lt;br&gt;ininterruptamente">Sistema operando<br>ininterruptamente</p>
+              <img loading="lazy" decoding="async" src="public/images/icons/quem-03.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;" />
+              <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01;">24/07<br/>disponibilidade</h3>
+              <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">Sistema operando<br/>ininterruptamente</p>
             </div>
           </article>
         </div>
+
         <!-- LINHA 2: Infraestrutura / Parcerias / Especialista -->
         <div class="flex" style="gap: 24px;">
           <!-- Card 04: Infraestrutura (lan / network topology) -->
           <article style="background: #f8f6f0; border-radius: 24px; width: 220px; height: 227px; display: flex; flex-direction: column; align-items: flex-start; padding: 32px 16px;">
             <div class="flex flex-col w-full" style="gap: 8px;">
-              <img loading="lazy" decoding="async" src="public/images/icons/quem-04.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;">
+              <img loading="lazy" decoding="async" src="public/images/icons/quem-04.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;" />
               <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01;">Infraestrutura</h3>
-              <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;" data-orig-html="robusta e certificada">robusta e certificada</p>
+              <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">robusta e certificada</p>
             </div>
           </article>
+
           <!-- Card 05: Parcerias (handshake) -->
           <article style="background: #f8f6f0; border-radius: 24px; width: 220px; height: 227px; display: flex; flex-direction: column; align-items: flex-start; padding: 32px 16px;">
             <div class="flex flex-col w-full" style="gap: 8px;">
-              <img loading="lazy" decoding="async" src="public/images/icons/quem-05.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;">
+              <img loading="lazy" decoding="async" src="public/images/icons/quem-05.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;" />
               <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01;">Parcerias</h3>
-              <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;" data-orig-html="corporativas&lt;br&gt;e governamentais">corporativas<br>e governamentais</p>
+              <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">corporativas<br/>e governamentais</p>
             </div>
           </article>
+
           <!-- Card 06: Especialista (currency-exchange / cycle with $) -->
           <article style="background: #f8f6f0; border-radius: 24px; width: 220px; height: 227px; display: flex; flex-direction: column; align-items: flex-start; padding: 32px 16px;">
             <div class="flex flex-col w-full" style="gap: 8px;">
-              <img loading="lazy" decoding="async" src="public/images/icons/quem-06.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;">
+              <img loading="lazy" decoding="async" src="public/images/icons/quem-06.svg" alt="" aria-hidden="true" style="width: 48px; height: 48px;" />
               <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01;">Especialista</h3>
-              <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;" data-orig-html="em meios de pagamento e automação de transações">em meios de pagamento e automação de transações</p>
+              <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e;">em meios de pagamento e automação de transações</p>
             </div>
           </article>
         </div>
+
       </div>
     </div>
+
     <!-- ===== CARROSSEL MOBILE (<768px) — Quem está por trás. Borda verde, controles verdes ===== -->
     <div class="quem-mobile" style="display: none; width: 100%;">
       <div class="quem-track" style="display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px;">
         <!-- Card 01 -->
         <article class="quem-card card-hover" style="scroll-snap-align: center; flex: 0 0 85%; background: #f8f6f0; border: 1px solid #009F44; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-          <img loading="lazy" decoding="async" src="public/images/icons/quem-01.svg" alt="" aria-hidden="true" style="width: 44px; height: 44px;">
+          <img loading="lazy" decoding="async" src="public/images/icons/quem-01.svg" alt="" aria-hidden="true" style="width: 44px; height: 44px;" />
           <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01; margin: 8px 0 0 0;">25 anos de mercado</h3>
-          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;" data-orig-html="Desenvolvendo soluções digitais">Desenvolvendo soluções digitais</p>
+          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;">Desenvolvendo soluções digitais</p>
         </article>
         <!-- Card 02 -->
         <article class="quem-card card-hover" style="scroll-snap-align: center; flex: 0 0 85%; background: #f8f6f0; border: 1px solid #009F44; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-          <img loading="lazy" decoding="async" src="public/images/icons/quem-02.svg" alt="" aria-hidden="true" style="width: 44px; height: 44px;">
+          <img loading="lazy" decoding="async" src="public/images/icons/quem-02.svg" alt="" aria-hidden="true" style="width: 44px; height: 44px;" />
           <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01; margin: 8px 0 0 0;">100% digital</h3>
-          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;" data-orig-html="Plataforma totalmente online e automatizada">Plataforma totalmente online e automatizada</p>
+          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;">Plataforma totalmente online e automatizada</p>
         </article>
         <!-- Card 03 -->
         <article class="quem-card card-hover" style="scroll-snap-align: center; flex: 0 0 85%; background: #f8f6f0; border: 1px solid #009F44; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-          <img loading="lazy" decoding="async" src="public/images/icons/quem-03.svg" alt="" aria-hidden="true" style="width: 44px; height: 44px;">
+          <img loading="lazy" decoding="async" src="public/images/icons/quem-03.svg" alt="" aria-hidden="true" style="width: 44px; height: 44px;" />
           <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01; margin: 8px 0 0 0;">24/07 disponibilidade</h3>
-          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;" data-orig-html="Sistema operando ininterruptamente">Sistema operando ininterruptamente</p>
+          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;">Sistema operando ininterruptamente</p>
         </article>
         <!-- Card 04 -->
         <article class="quem-card card-hover" style="scroll-snap-align: center; flex: 0 0 85%; background: #f8f6f0; border: 1px solid #009F44; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-          <img loading="lazy" decoding="async" src="public/images/icons/quem-04.svg" alt="" aria-hidden="true" style="width: 44px; height: 44px;">
+          <img loading="lazy" decoding="async" src="public/images/icons/quem-04.svg" alt="" aria-hidden="true" style="width: 44px; height: 44px;" />
           <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01; margin: 8px 0 0 0;">Infraestrutura</h3>
-          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;" data-orig-html="robusta e certificada">robusta e certificada</p>
+          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;">robusta e certificada</p>
         </article>
         <!-- Card 05 -->
         <article class="quem-card card-hover" style="scroll-snap-align: center; flex: 0 0 85%; background: #f8f6f0; border: 1px solid #009F44; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-          <img loading="lazy" decoding="async" src="public/images/icons/quem-05.svg" alt="" aria-hidden="true" style="width: 44px; height: 44px;">
+          <img loading="lazy" decoding="async" src="public/images/icons/quem-05.svg" alt="" aria-hidden="true" style="width: 44px; height: 44px;" />
           <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01; margin: 8px 0 0 0;">Parcerias</h3>
-          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;" data-orig-html="corporativas e governamentais">corporativas e governamentais</p>
+          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;">corporativas e governamentais</p>
         </article>
         <!-- Card 06 -->
         <article class="quem-card card-hover" style="scroll-snap-align: center; flex: 0 0 85%; background: #f8f6f0; border: 1px solid #009F44; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-          <img loading="lazy" decoding="async" src="public/images/icons/quem-06.svg" alt="" aria-hidden="true" style="width: 44px; height: 44px;">
+          <img loading="lazy" decoding="async" src="public/images/icons/quem-06.svg" alt="" aria-hidden="true" style="width: 44px; height: 44px;" />
           <h3 style="font-family: 'Kufam', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; letter-spacing: 0.5px; color: #371b01; margin: 8px 0 0 0;">Especialista</h3>
-          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;" data-orig-html="em meios de pagamento e automação de transações">em meios de pagamento e automação de transações</p>
+          <p style="font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; color: #2e2e2e; margin: 0;">em meios de pagamento e automação de transações</p>
         </article>
       </div>
+
       <!-- Controles: bolinhas à esquerda, setas juntas à direita (verde Potencial) -->
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 24px;">
         <div class="quem-dots" style="display: flex; gap: 8px; align-items: center;">
-          <span data-i="0" style="width: 24px; height: 8px; border-radius: 999px; background: rgb(0, 159, 68); transition: 0.2s; cursor: pointer;"></span>
-          <span data-i="1" style="width: 8px; height: 8px; border-radius: 999px; background: rgb(212, 232, 218); transition: 0.2s; cursor: pointer;"></span>
-          <span data-i="2" style="width: 8px; height: 8px; border-radius: 999px; background: rgb(212, 232, 218); transition: 0.2s; cursor: pointer;"></span>
-          <span data-i="3" style="width: 8px; height: 8px; border-radius: 999px; background: rgb(212, 232, 218); transition: 0.2s; cursor: pointer;"></span>
-          <span data-i="4" style="width: 8px; height: 8px; border-radius: 999px; background: rgb(212, 232, 218); transition: 0.2s; cursor: pointer;"></span>
-          <span data-i="5" style="width: 8px; height: 8px; border-radius: 999px; background: rgb(212, 232, 218); transition: 0.2s; cursor: pointer;"></span>
+          <span data-i="0" style="width: 8px; height: 8px; border-radius: 999px; background: #009F44; transition: all 0.2s;"></span>
+          <span data-i="1" style="width: 8px; height: 8px; border-radius: 999px; background: #d4e8da; transition: all 0.2s;"></span>
+          <span data-i="2" style="width: 8px; height: 8px; border-radius: 999px; background: #d4e8da; transition: all 0.2s;"></span>
+          <span data-i="3" style="width: 8px; height: 8px; border-radius: 999px; background: #d4e8da; transition: all 0.2s;"></span>
+          <span data-i="4" style="width: 8px; height: 8px; border-radius: 999px; background: #d4e8da; transition: all 0.2s;"></span>
+          <span data-i="5" style="width: 8px; height: 8px; border-radius: 999px; background: #d4e8da; transition: all 0.2s;"></span>
         </div>
         <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
           <button type="button" class="quem-prev" aria-label="Anterior" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid #009F44; background: #009F44; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <button type="button" class="quem-next" aria-label="Próximo" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid #009F44; background: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#009F44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#009F44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
       </div>
