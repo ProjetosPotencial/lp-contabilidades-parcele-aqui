@@ -311,7 +311,7 @@
     .modelos-img-mobile { display: block !important; }
     /* Dobra modelos no mobile: zera padding-top (imagem encosta no topo). O container-fig também perde o padding-top. */
     section#modelos:not(#solucao) { padding-top: 0 !important; }
-    section#modelos .container-fig { padding-top: 0 !important; padding-left: 36px !important; padding-right: 36px !important; }
+    section#modelos .container-fig { padding-top: 0 !important; padding-left: 0 !important; padding-right: 0 !important; max-width: 100% !important; }
     /* Container de texto da dobra modelos: fluído com 36px de margem (padrão da LP). */
     .modelos-texto { width: 100% !important; max-width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; }
     /* Imagem full bleed: compensa os 36px da section (container-fig zerado). Margens simétricas = centralizada. */
@@ -485,6 +485,11 @@
     /* Dobra Empresas — margin top/bottom mobile (cai pra 56px global, reforça) */
     #empresas { padding-top: 40px !important; padding-bottom: 40px !important; }
 
+    /* Dobra Modelos — mobile: fundo branco no topo (até a altura do mouse no iMac, ~68vw) + bege embaixo.
+       Cria a sensação de que o iMac sangra da dobra anterior (branca) com a base entrando no bege. */
+    section#modelos {
+      background: linear-gradient(to bottom, #ffffff 0, #ffffff 68vw, #f8f6f0 68vw, #f8f6f0 100%) !important;
+    }
     /* Dobra Modelos — mobile: iMac centralizado com 36px margem cada lado (vem do container-fig) + layout empilhado */
     #modelos .modelos-imac-desktop { display: none !important; }
     #modelos .modelos-img-mobile {
@@ -497,7 +502,7 @@
       object-position: center;
     }
     #modelos .modelos-layout { gap: 24px !important; }
-    #modelos .modelos-texto { padding-left: 0 !important; max-width: 100% !important; }
+    #modelos .modelos-texto { padding-left: 36px !important; padding-right: 36px !important; max-width: 100% !important; box-sizing: border-box !important; }
 
     /* Dobra Quem somos — espaçamentos topo, base, e antes do carrossel */
     #quem-somos { padding-top: 40px !important; padding-bottom: 40px !important; }
@@ -614,7 +619,7 @@
       <a href="#solucao" class="nav-link text-base text-brand-text-secondary">Soluções</a>
     </nav>
     <div class="flex items-center gap-5">
-      <a href="https://wa.me/5531973322921?text=Ol%C3%A1%21%20Vim%20da%20Landing%20Page%20Parcele%20Aqui%20Neg%C3%B3cios%20e%20quero%20fazer%20uma%20simula%C3%A7%C3%A3o%20de%20parcelamento%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener" class="btn-primary hidden sm:inline-flex" style="padding: 12px 20px; font-size: 14px;">Quero simular parcelamento</a>
+      <a href="https://wa.me/5531973322921?text=Ol%C3%A1%21%20Vim%20da%20Landing%20Page%20Parcele%20Aqui%20Neg%C3%B3cios%20e%20quero%20fazer%20uma%20simula%C3%A7%C3%A3o%20de%20parcelamento%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener" class="btn-primary hidden lg:inline-flex" style="padding: 12px 20px; font-size: 14px;">Quero simular parcelamento</a>
       <a href="https://parceleaqui.com.br/login" target="_blank" rel="noopener" class="hidden sm:inline-flex text-sm font-bold" style="color: #111; transition: color 0.2s;" onmouseover="this.style.color='#e6ac00'" onmouseout="this.style.color='#111'">Entrar</a>
       <button id="mobileToggle" class="lg:hidden inline-flex items-center justify-center" style="padding: 16px; color: #371b01;" aria-label="Menu">
         <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
